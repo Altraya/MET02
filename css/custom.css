@@ -36,6 +36,9 @@ h1, h2, h3, h4, h5, h6 {
     right: 2em;
     max-width: 30em;
     z-index: 3;
+    
+    /*police*/
+    color:black;
 }
 
 /*On miniCartMenu hover > show miniCart*/
@@ -69,6 +72,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom:0;
 }
 
+.noPadding{
+    padding:0;
+}
+
 .maxHeight{
     height: 100%;
 }
@@ -95,6 +102,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .card .card-content.tenPadding, .tenPadding {
     padding:10px;
+}
+
+.card .card-content.noPadding {
+    padding:0;
+}
+
+.card .card-content .autoMargin{
+    margin:auto;
 }
 
 #featuredItems img {
@@ -148,12 +163,15 @@ h1, h2, h3, h4, h5, h6 {
     padding: 18px;
 }
 
-.imgCart {
-    fill:white;
+.priceSmallCard{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
 }
 
-.noMarginBottom {
-    margin-bottom: 0;
+.imgCart {
+    fill:white;
 }
 
 

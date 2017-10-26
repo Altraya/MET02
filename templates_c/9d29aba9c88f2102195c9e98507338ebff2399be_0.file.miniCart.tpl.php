@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-26 13:26:12
+/* Smarty version 3.1.31, created on 2017-10-26 15:12:20
   from "/home/ubuntu/workspace/MyLittleUnicornShop/templates/include/miniCart.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59f1e274072751_06223612',
+  'unifunc' => 'content_59f1fb54490838_58711096',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9d29aba9c88f2102195c9e98507338ebff2399be' => 
     array (
       0 => '/home/ubuntu/workspace/MyLittleUnicornShop/templates/include/miniCart.tpl',
-      1 => 1509024368,
+      1 => 1509030737,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59f1e274072751_06223612 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59f1fb54490838_58711096 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="card-panel pinkMaterializeBackground" id="miniCart">
   <h3 class="white-text center noMarginTop">My cart</h3>
@@ -32,10 +32,20 @@ function content_59f1e274072751_06223612 (Smarty_Internal_Template $_smarty_tpl)
           <img src="img/t-shirt.png" alt="unicorn t-shirt">
         </div>
         <div class="card-stacked flexIt">
-          <div class="card-content tenPadding">
-            <h4 class="">Unicorn T-shirt</h4>
-            <p>Size : M | Quantity : 2.</p>
-            <p class="right pinkMaterializeColor">45,00€</p>
+          <div class="card-content noPadding maxHeight">
+            <div class="row autoMargin">
+              <div class="col s12">
+                <h4 class="">Unicorn T-shirt</h4>
+              </div>
+            </div>
+            <div class="row autoMargin">
+              <div class="col s9">
+                <p>Size : M | Quantity : 2.</p>
+              </div>
+              <div class="col s3">
+                <p class="right pinkMaterializeColor">45,00€</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -49,10 +59,20 @@ function content_59f1e274072751_06223612 (Smarty_Internal_Template $_smarty_tpl)
           <img src="img/pastry.png" alt="unicorn pastry">
         </div>
         <div class="card-stacked flexIt">
-          <div class="card-content tenPadding">
-            <h4 class="">Unicorn pastry</h4>
-            <p>Quantity : 1.</p>
-            <p class="right pinkMaterializeColor">5,99€</p>
+          <div class="card-content noPadding maxHeight">
+            <div class="row autoMargin">
+              <div class="col s12">
+                <h4 class="">Unicorn pastry</h4>
+              </div>
+            </div>
+            <div class="row autoMargin">
+              <div class="col s9">
+                <p>Quantity : 1.</p>
+              </div>
+              <div class="col s3">
+                <p class="right pinkMaterializeColor">5,99€</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
