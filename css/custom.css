@@ -1,0 +1,231 @@
+
+/*Change color*/
+input:not([type]):focus:not([readonly]),input[type=text]:not(.browser-default):focus:not([readonly]),input[type=password]:not(.browser-default):focus:not([readonly]),input[type=email]:not(.browser-default):focus:not([readonly]),input[type=url]:not(.browser-default):focus:not([readonly]),input[type=time]:not(.browser-default):focus:not([readonly]),input[type=date]:not(.browser-default):focus:not([readonly]),input[type=datetime]:not(.browser-default):focus:not([readonly]),input[type=datetime-local]:not(.browser-default):focus:not([readonly]),input[type=tel]:not(.browser-default):focus:not([readonly]),input[type=number]:not(.browser-default):focus:not([readonly]),input[type=search]:not(.browser-default):focus:not([readonly]),textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #f50057;
+    -webkit-box-shadow: 0 1px 0 0 #f50057;
+    box-shadow: 0 1px 0 0 #f50057;
+}
+
+input:not([type]):focus:not([readonly])+label,input[type=text]:not(.browser-default):focus:not([readonly])+label,input[type=password]:not(.browser-default):focus:not([readonly])+label,input[type=email]:not(.browser-default):focus:not([readonly])+label,input[type=url]:not(.browser-default):focus:not([readonly])+label,input[type=time]:not(.browser-default):focus:not([readonly])+label,input[type=date]:not(.browser-default):focus:not([readonly])+label,input[type=datetime]:not(.browser-default):focus:not([readonly])+label,input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,input[type=tel]:not(.browser-default):focus:not([readonly])+label,input[type=number]:not(.browser-default):focus:not([readonly])+label,input[type=search]:not(.browser-default):focus:not([readonly])+label,textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #f50057;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #f50057;
+}
+
+#sliderHome h3, #sliderHome h5 {
+    color:white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Dosis, Roboto, Serif;
+}
+
+.pinkMaterializeBackground {
+    background-color:#ee6e73;
+}
+
+.pinkMaterializeColor {
+    color:#ee6e73;
+}
+
+#miniCart {
+    display: none;
+    position: absolute;
+    right: 2em;
+    max-width: 30em;
+    z-index: 3;
+}
+
+/*On miniCartMenu hover > show miniCart*/
+.miniCartMenu:hover > #miniCart {
+    display: block !important;
+}
+
+.hidden{
+    display: none;
+}
+
+/*Custom css*/
+
+.card .card-content .miniMarginArround {
+    margin:1em;    
+}
+
+.smallMarginTop {
+    margin-top: 5vh;
+}
+
+.smallMarginBottom {
+    margin-bottom: 5vh;
+}
+
+.noMarginTop {
+    margin-top:0;
+}
+
+.noMarginBottom {
+    margin-bottom:0;
+}
+
+.maxHeight{
+    height: 100%;
+}
+
+.smallPaddingLeft {
+    padding-left:24px;
+}
+
+.smallPaddingRight, nav ul.smallPaddingRight{
+    padding-right:24px;
+}
+
+.maxHeightCardItems {
+    max-height: 9em;
+}
+
+.maxHeightCardItemsBig {
+    max-height: 20em;
+}
+
+.card.horizontal .card-image.imgCartItem {
+    max-width:30%;
+}
+
+.card .card-content.tenPadding, .tenPadding {
+    padding:10px;
+}
+
+#featuredItems img {
+    width: 100%;
+    height: 10em;
+}
+
+
+.customPinkBackground {
+	background-color: #ff8dd2;
+}
+
+.borderPink {
+    border-color: #ff8dd2;
+}
+
+.customLessPinkBackground {
+	background-color: rgba(255, 141, 210, 0.46);
+}
+
+.customGreyColorBackground {
+	background-color: #f5f5f5;
+}
+
+.widthMax{
+	width: 100%;
+}
+
+.flexIt {
+    display:flex;
+}
+
+.rowReverser {
+	flex-direction: row-reverse;
+}
+
+
+.searchIconCorrectionHack {
+    top: -0.75em !important;
+}
+
+#imgCartNav {
+    width:15%;
+    height:15%;
+}
+
+.priceBigCard {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 18px;
+}
+
+.imgCart {
+    fill:white;
+}
+
+.noMarginBottom {
+    margin-bottom: 0;
+}
+
+
+/*For search input in banner*/
+
+.formSearch {
+    background-color: #ffffff;
+    border-color: #f97ebb;
+    color:#f97ebb;
+}
+
+.mediumButtonCentered {
+    margin:auto;
+    width: 75%;
+}
+
+button.formSearch:hover, button.formSearch:active, button.formSearch:focus {
+    background-color: #f97ebb;
+    border-color: #ffffff;
+    color:#ffffff;
+}
+
+input.formSearch:active, input.formSearch:focus {
+	border-color:rgba(255, 141, 210, 0.80);
+}
+
+
+/*For placeholder text color*/
+input.formSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #f97ebb;
+}
+input.formSearch:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #f97ebb;
+   opacity:  1;
+}
+input.formSearch::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #f97ebb;
+   opacity:  1;
+}
+input.formSearch:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #f97ebb;
+}
+input.formSearch::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #f97ebb;
+}
+
+/*Fonts*/
+
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: DosisBold;
+    src: url(../fonts/Dosis/Dosis-Bold.ttf);
+}
+
+@font-face {
+    font-family: Dosis;
+    src: url(../fonts/Dosis/Dosis-Regular.ttf);
+}
+
+.Roboto {
+    font-family: Roboto;
+}
+
+.Dosis {
+    font-family: Dosis;
+}
+
+.DosisBold {
+    font-family: DosisBold;
+}
+
