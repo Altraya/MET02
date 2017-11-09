@@ -11,26 +11,21 @@ function checkMail()
 }
 
 
+function isPhoneNumberValid(phoneNumber)
+{
+    phoneNumber.replace(" ",'')
+    //Gestion des +33
+    if(phoneNumber.charAt(0) == '+')
+    {
+        phoneNumber = phoneNumber.substring(2);
+    }
+    return (phoneNumber.length == 10 && !(isNaN(phoneNumber)))
+}
 
 function checkPhone()
 {
-    console.log(phone);
-    phone.class = "validate invalid";
-    phone.classList.add('invalid');
-    phone.classList.remove('valid');
-    phone.setAttribute(class, 'validate invalid');
-    console.log(phone);
-    var phoneNumber = phone.value;
-    phoneNumber.replace(" ",'')
-    if(phoneNumber.includes("+"))
-    {
-        if(phoneNumber.lenght != 9)
-            console.log("oui");
-            //add invalid to input
-    }
+    if(isPhoneNumberValid(phone.value))
+        phone.setCustomValidity("");
     else
-    {
-        
-    }
-    //add or remove data-error or data-success
+        phone.setCustomValidity("Invalid field.");
 }
