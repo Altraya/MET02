@@ -1,7 +1,4 @@
-
 <?php
-
-
 	
 	$erreur = false;
 	if ($action == "validation") {
