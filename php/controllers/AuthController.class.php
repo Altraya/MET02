@@ -9,10 +9,10 @@ class AuthController {
     
    protected $container;
 
-   // constructor receives container instance
-   public function __construct(ContainerInterface $container) {
+    // constructor receives container instance
+    public function __construct(ContainerInterface $container) {
        $this->container = $container;
-   }
+    }
     
     public function login(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {

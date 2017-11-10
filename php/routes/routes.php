@@ -20,24 +20,7 @@ $container["AuthController"] = function ($container) {
 };
 
 $app->group('/auth', function() use ($container) {
-    $this->get('/login', AuthController::class, ':login');
+    $this->get('/login', 'App\Controllers\AuthController:login');
+    $this->get('/login', 'App\Controllers\AuthController:logout');
+    $this->get('/login', 'App\Controllers\AuthController:signup');
 });
-
-/*
-$app->group('/auth', function ()  use ($app) {
-    
-    //LOGIN
-    $app->map('/login', function () use ($app) {
-        $app->AuthController->login();
-    })
-    ->via('GET', 'POST')
-    ->name('login');
-    
-    //LOGOUT
-    $app->map('/logout', function () use ($app) {
-        $app->AuthController->logout();
-    })
-    ->via('GET', 'POST')
-    ->name('logout');
-
-});*/
