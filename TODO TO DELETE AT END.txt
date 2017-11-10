@@ -1,0 +1,65 @@
+Slim framework : permet de faire les requetes http 
+
+propel : l'orm
+
+Todo :
+Refaire le script de creation de la DB et rentrer des données de test
+
+5 Faire la recherche
+10 Regarder comment se passe l'intégration d'un module Paypal ? @Bob ?
+0 integrer au routeur la category
+1.2 faire une page 404
+1 Repasser une couche de validation sur tous les formulaires (coté client + coté serveur)
+    - Controler les champs via javacript
+2 faire bdd + test
+
+
+
+
+Modules :
+
+La page d’accueil
+– La gestion du compte client (client.php)
+– Le catalogue (catalog.php + category)
+– La recherche (sur la page d'accueil le champ dans la banniere)
+– Le panier (miniCart + cart)
+- Le paiement (normal -> faire la vue ou on ajoute l'adresse etc + voir pour paypal plus tard)
+
+
+Architecture applicative :
+
+ActionController ? Request / Response ? 
+
+Front Controller : Notre router -> toutes les requetes vont y passer 
+[---> HomeController : home 
+|---> AuthController : Connection / Deco / inscription
+|---> CatalogController : Pour toute la boutique / Catalog + Cart 
+|---> ClientController : Client 
+|---> PaiementController : Pour toute la partie paiement ou on aura le paiement paypal aussi / checkout ? Transaction ?
+
+Faire un YML pour creer en memoire la route > 
+---
+Routes :
+index.php/auth/login
+index.php/auth/logout
+index.php/auth/signup
+
+index.php/catalog/animals
+index.php/catalog/plushes
+index.php/catalog/candyandpastry
+index.php/catalog/papershop
+index.php/catalog/clothes
+
+
+index.php/cart
+index.php/search (juste en call ajax --> pas une vrai route visible ou on fait une vrai page ?
+
+index.php/account/{idClient}
+
+
+
+    $this->group('/auth', function () {
+        $this->map(['GET', 'POST'], '/login', 'App\controllers\AuthController:login');
+        $this->map(['GET', 'POST'], '/logout', 'App\controllers\AuthController:logout');
+        $this->map(['GET', 'POST'], '/signup', 'App\controllers\AuthController:signup');
+    });

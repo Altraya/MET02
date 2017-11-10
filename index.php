@@ -6,54 +6,12 @@
 
 	use App\Controllers\FrontController;
 	
+    // SMARTY
+	$smarty = new Smarty ();
+	
+	$smarty->template_dir = 'templates/';
+	$smarty->compile_dir = 'templates_c/';
+	$smarty->config_dir = 'configs/';
+	$smarty->cache_dir = 'cache/';
+	
 	$frontController = new FrontController();
-/*
-	$configuration = [
-	    'settings' => [
-	        'displayErrorDetails' => true,
-	    ],
-	];
-
-	$c = new \Slim\Container($configuration);
-	$c['errorHandler'] = function ($c) {
-	    return new CustomErrorHandler();
-	};
-	$app = new \Slim\App($c);
-	
-	
-	// FRONT CONTROLEUR	
-	if (isset ($_GET ['page']))
-	{
-		$page = htmlspecialchars($_GET ['page']);
-	}
-	else
-	{
-		$page = "home";
-	}
-	
-	if (isset ($_GET ['action'])) 
-	{
-		$action = htmlspecialchars($_GET ['action']);
-	}
-	else 
-	{
-		$action = "";
-	}
-		
-	switch ($page) {
-	    case "cart":
-	    case "miniCart":
-	 	case "client":
-	    case "transaction" :
-		case "catalog":
-		case "connection":
-    	case "account":
-    	case "404" :
-		case "inscription":
-			require("php/$page.php");
-			break;
-		default:
-	       require("php/home.php");
-	    break;
-	}
-*/
