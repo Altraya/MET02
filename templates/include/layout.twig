@@ -1,12 +1,12 @@
-{include file='include/meta.tpl'}
+{% include 'include/meta.twig' %}
 <body>
-    {include file='include/header.tpl'}
+    {% include 'include/header.twig' %}
     <section id="bodyPage" class="container">
-        {block name=body}{/block}
+        {% block body %}{% endblock %}
     </section>
-    {include file='include/footer.tpl'}
+    {%include 'include/footer.twig'%}
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="js/autocomplete.js"></script>
-    {block name=jsblock}{/block}
+    {% block jsblock %}{% endblock %}
 </body>

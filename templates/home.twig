@@ -1,7 +1,7 @@
-{extends file="include/layout.tpl"}
-{block name=body}
+{%extends "include/layout.tpl"%}
+{%block body%}
     <div class="row smallMarginTop" id="sliderHome">
-        {include file='slider.tpl'}
+        {%include 'slider.twig'%}
     </div>
     
     <div id="featuredItems">
@@ -54,4 +54,4 @@
 		    <p>We love our community, so we improve our shop each day to give opportunity to our follower to sell their creations with us ! Join now our community</p>
         </div>
     </div>
-{/block}
+{%endblock%}

@@ -9,7 +9,7 @@ $app->getContainer()->getSingleton('CatalogController', function () {
 });*/
 
 //Define routes
-require_once("php/controllers/AuthController.class.php");
+require_once("app/controllers/AuthController.class.php");
 
 use App\Controllers\AuthController;
 

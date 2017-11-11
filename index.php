@@ -2,7 +2,7 @@
 	// LIBS
 	require_once 'vendor/autoload.php';
     require_once 'generated-conf/config.php';
-    require_once 'php/controllers/FrontController.class.php';
+    require_once 'app/controllers/FrontController.class.php';
 
 	use App\Controllers\FrontController;
 	/*

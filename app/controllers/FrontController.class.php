@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
@@ -31,28 +31,20 @@ class FrontController {
     	$cache_dir = 'cache/';
         
         // Register component on container
-       /* $container['view'] = function ($container) {
-            $view = new \Slim\Views\Twig($template_dir, [
-                'cache' => $cache_dir
-            ]);
-            
-            // Instantiate and add Slim specific extension
-            //$basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
-            //$view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
-            
-            return $view;
-        };*/
-        
         $container['view'] = function($container) {
-        	$view = new \Slim\Views\Twig(
+        	/*$view = new \Slim\Views\Twig(
         		['cache' => false]
+        	);*/
+        	
+        	$view = new \Slim\Views\Twig(__DIR__ . '/../../templates', 
+        	    ['cache' => false]
         	);
         
-        	$view->addExtension(new Slim\Views\TwigExtension($container['router'], $container['request']->getUri()));
+        	$view->addExtension(new \Slim\Views\TwigExtension($container['router'], $container['request']->getUri()));
         	return $view;
         };
-
-        require_once 'php/routes/routes.php';
+        
+        require_once 'app/routes/routes.php';
         
 		$app->run();
 	}

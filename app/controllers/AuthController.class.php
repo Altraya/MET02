@@ -18,10 +18,7 @@ class AuthController {
     
     public function login(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        /*$smarty->assign("viewname", "connection");
-	    $smarty->display("login.tpl"); */
-	    $response->write('je suis une reponse');
-	    $result = $this->view->render($response, 'login.html', []);
+	    $result = $this->view->render($response, 'login.twig', []);
 	    return $result;
     }
     
