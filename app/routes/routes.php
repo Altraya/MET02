@@ -21,6 +21,6 @@ $container["AuthController"] = function ($container) {
 
 $app->group('/auth', function() use ($container) {
     $this->get('/login', 'App\Controllers\AuthController:login');
-    $this->get('/login', 'App\Controllers\AuthController:logout');
-    $this->get('/login', 'App\Controllers\AuthController:signup');
+    $this->get('/logout', 'App\Controllers\AuthController:logout');
+    $this->get('/signup', 'App\Controllers\AuthController:signup');
 });

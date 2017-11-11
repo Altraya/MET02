@@ -5,13 +5,13 @@
     require_once 'php/controllers/FrontController.class.php';
 
 	use App\Controllers\FrontController;
-	
+	/*
     // SMARTY
 	$smarty = new Smarty ();
 	
 	$smarty->template_dir = 'templates/';
 	$smarty->compile_dir = 'templates_c/';
 	$smarty->config_dir = 'configs/';
-	$smarty->cache_dir = 'cache/';
+	$smarty->cache_dir = 'cache/';*/
 	
 	$frontController = new FrontController();
