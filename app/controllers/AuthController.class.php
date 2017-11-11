@@ -22,10 +22,16 @@ class AuthController {
 	    return $result;
     }
     
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    public function logout(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        
-        return $response->write('Hello World! é'); /*$this->smarty->display("login.tpl");*/
+	    $result = $this->view->render($response, 'logout.twig', []);
+	    return $result;
+    }
+    
+    public function signup(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    {
+	    $result = $this->view->render($response, 'signup.twig', []);
+	    return $result;
     }
 
 }

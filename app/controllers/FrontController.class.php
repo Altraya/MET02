@@ -4,8 +4,10 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
+use App\Handlers\NotFoundHandler;
 
-require 'vendor/autoload.php';
+require_once('app/handler/NotFoundHandler.class.php');
+require_once('vendor/autoload.php');
 
 class FrontController {
     public function __construct()
@@ -32,9 +34,6 @@ class FrontController {
         
         // Register component on container
         $container['view'] = function($container) {
-        	/*$view = new \Slim\Views\Twig(
-        		['cache' => false]
-        	);*/
         	
         	$view = new \Slim\Views\Twig(__DIR__ . '/../../templates', 
         	    ['cache' => false]
@@ -42,6 +41,14 @@ class FrontController {
         
         	$view->addExtension(new \Slim\Views\TwigExtension($container['router'], $container['request']->getUri()));
         	return $view;
+        };
+        
+        //Override the default Not Found Handler
+        $container['notFoundHandler'] = function ($c) { 
+            return new NotFoundHandler($c->get('view'), function ($request, $response) use ($c) {
+                return $c['response'] 
+                    ->withStatus(404); 
+            }); 
         };
         
         require_once 'app/routes/routes.php';

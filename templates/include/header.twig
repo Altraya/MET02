@@ -2,28 +2,28 @@
 
 	<nav id="topNavbar" class="pink lighten-2">
 		<div class="nav-wrapper">
-			<a href="index.php" class="brand-logo">MyLittleUnicornShop</a>
+			<a href="{{ baseUrl }}" class="brand-logo">MyLittleUnicornShop</a>
 			<a href="#" data-activates="mobile-top-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="index.php?page=account">Account</a></li>
-				<li><a href="index.php?page=cart">Cart</a></li>
-				<li><a href="index.php?page=connection">Log in</a></li>
+				<li><a href="{{ baseUrl }}">Home</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/account' }}">Account</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}">Cart</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/auth/login' }}">Log in</a></li>
 			</ul>
 			<ul class="side-nav right" id="mobile-top-menu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="index.php?page=account">Account</a></li>
-				<li><a href="index.php?page=cart">Cart</a></li>
-				<li><a href="index.php?page=connexion">Log in</a></li>
+				<li><a href="{{ baseUrl }}">Home</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/account' }}">Account</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}">Cart</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/auth/login' }}">Log in</a></li>
 				
 				<div class="divider"></div>
 
-				<li><a href="index.php?page=catalog&category=animals">Animals</a></li>
-				<li><a href="index.php?page=catalog&category=plushes">Plushes</a></li>
-				<li><a href="index.php?page=catalog&category=candyandpastry">Candy and Pastry</a></li>
-				<li><a href="index.php?page=catalog&category=papershop">Papershop</a></li>
-				<li><a href="index.php?page=catalog&category=clothes">Clothes</a></li>
-		        <li><a href="index.php?page=catalog&category=cart"><i class="material-icons right">shopping_cart</i>Cart</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/animals' }}">Animals</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/plushes' }}">Plushes</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/candyandpastry' }}">Candy and Pastry</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/papershop' }}">Papershop</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/clothes' }}">Clothes</a></li>
+		        <li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}"><i class="material-icons right">shopping_cart</i>Cart</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -62,15 +62,15 @@
 	<nav id="mainNavbar" class="pink lighten-2 show-on-medium-and-up">
 		<div class="nav-wrapper">
 			<ul class="left">
-				<li><a href="index.php?page=catalog&category=animals" class="active">Animals</a></li>
-				<li><a href="index.php?page=catalog&category=plushes">Plushes</a></li>
-				<li><a href="index.php?page=catalog&category=candyandpastry">Candy and Pastry</a></li>
-				<li><a href="index.php?page=catalog&category=papershop">Papershop</a></li>
-				<li><a href="index.php?page=catalog&category=clothes">Clothes</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/animals' }}" class="active">Animals</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/plushes' }}">Plushes</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/candyandpastry' }}">Candy and Pastry</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/papershop' }}">Papershop</a></li>
+				<li><a href="{{ baseUrl ~ 'index.php/shop/clothes' }}">Clothes</a></li>
 			</ul>
 			<ul class="right smallPaddingRight">
 		        <li class="miniCartMenu">
-		        	<a href="index.php?page=cart"><i class="material-icons right">shopping_cart</i>Cart</a>
+		        	<a href="{{ baseUrl ~ 'index.php/shop/cart' }}"><i class="material-icons right">shopping_cart</i>Cart</a>
     				{% include 'include/miniCart.twig' %}
 		        </li>
 			</ul>

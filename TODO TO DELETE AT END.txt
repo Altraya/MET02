@@ -37,24 +37,25 @@ Front Controller : Notre router -> toutes les requetes vont y passer
 |---> ClientController : Client 
 |---> PaiementController : Pour toute la partie paiement ou on aura le paiement paypal aussi / checkout ? Transaction ?
 
-Faire un YML pour creer en memoire la route > 
 ---
 Routes :
-index.php/auth/login
-index.php/auth/logout
-index.php/auth/signup
 
-index.php/catalog/animals
-index.php/catalog/plushes
-index.php/catalog/candyandpastry
-index.php/catalog/papershop
-index.php/catalog/clothes
+/ : home 
 
+/auth/login
+/auth/logout
+/auth/signup
 
-index.php/cart
-index.php/search (juste en call ajax --> pas une vrai route visible ou on fait une vrai page ?
+/shop/animals
+/shop/plushes
+/shop/candyandpastry
+/shop/papershop
+/shop/clothes
 
-index.php/account/{idClient}
+/shop/cart
+/shop/search (juste en call ajax --> pas une vrai route visible ou on fait une vrai page ?
+
+/account/{idClient}
 
 
 

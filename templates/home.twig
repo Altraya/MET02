@@ -1,7 +1,7 @@
-{%extends "include/layout.tpl"%}
-{%block body%}
+{% extends "include/layout.twig" %}
+{% block body %}
     <div class="row smallMarginTop" id="sliderHome">
-        {%include 'slider.twig'%}
+        {% include 'slider.twig' %}
     </div>
     
     <div id="featuredItems">
