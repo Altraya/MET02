@@ -1,5 +1,6 @@
-{extends file="include/layout.tpl"}
-{block name=body}
+{# templates/inscription.twig #}
+{%extends file="include/layout.twig"%}
+{%block body%}
 
     <h1>INSCRIPTION</h1>
     <form id="formInscription" class="smallMarginBottom">
@@ -91,8 +92,8 @@
         <div class="col s4"></div>
       </div>
     </form>
-  {block name=jsblock}
+  {%block jsblock%}
       <script type="text/javascript" src="js/inscription.js"></script>
-  {/block}
+  {%endblock%}
 
-{/block}
+{%endblock%}

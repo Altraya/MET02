@@ -1,3 +1,5 @@
+{% set baseUrl = "https://met02-karakayn.c9users.io/MyLittleUnicornShop/" %}
+
 {% include 'include/meta.twig' %}
 <body>
     {% include 'include/header.twig' %}
@@ -5,8 +7,8 @@
         {% block body %}{% endblock %}
     </section>
     {%include 'include/footer.twig'%}
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/autocomplete.js"></script>
+    <script type="text/javascript" src="{{ baseUrl ~ 'js/materialize.min.js' }}"></script>
+    <script type="text/javascript" src="{{ baseUrl ~ 'js/custom.js' }}"></script>
+    <script type="text/javascript" src="{{ baseUrl ~ 'js/autocomplete.js' }}"></script>
     {% block jsblock %}{% endblock %}
 </body>
