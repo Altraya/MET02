@@ -11,10 +11,6 @@
     
     
     "autoload": {
-
+        "classmap": ["generated-classes/"]
     }
-{
-"classmap":
-["generated-classes/"]
-}
 }

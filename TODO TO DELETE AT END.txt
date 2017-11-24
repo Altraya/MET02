@@ -6,14 +6,25 @@ Todo :
 Refaire le script de creation de la DB et rentrer des données de test
 
 5 Faire la recherche
+5.1 faire l'autocompletion de la recherche 
+
 10 Regarder comment se passe l'intégration d'un module Paypal ? @Bob ?
-0 integrer au routeur la category
-1.2 faire une page 404
-1 Repasser une couche de validation sur tous les formulaires (coté client + coté serveur)
+0 integrer au routeur la category   > done
+1.2 faire une page 404 > done
+1 Repasser une couche de validation sur tous les formulaires (coté client + coté serveur) > @bob
     - Controler les champs via javacript
-2 faire bdd + test
+2 faire bdd + test > prochaine cours
 
 
+Bugs connu :
+
+    > Responsive :
+        > Cart / miniCart
+        > Certains boutons > login 
+        > signup
+        > home
+        
+        > police qui se diminue par pour free shipping etc
 
 
 Modules :
@@ -64,3 +75,6 @@ Routes :
         $this->map(['GET', 'POST'], '/logout', 'App\controllers\AuthController:logout');
         $this->map(['GET', 'POST'], '/signup', 'App\controllers\AuthController:signup');
     });
+    
+    
+https://met02-karakayn.c9users.io/phpmyadmin
