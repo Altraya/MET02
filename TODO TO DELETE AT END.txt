@@ -13,7 +13,8 @@ Refaire le script de creation de la DB et rentrer des données de test
 1.2 faire une page 404 > done
 1 Repasser une couche de validation sur tous les formulaires (coté client + coté serveur) > @bob
     - Controler les champs via javacript
-2 faire bdd + test > prochaine cours
+2 faire bdd + test > prochaine cours > ok
+2.1 Faire marcher propel et creer les entités 
 
 
 Bugs connu :
@@ -78,3 +79,6 @@ Routes :
     
     
 https://met02-karakayn.c9users.io/phpmyadmin
+
+unicornshop
+password : MyLittleUnicornShop
