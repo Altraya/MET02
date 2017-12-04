@@ -40,6 +40,11 @@ class FrontController {
         	);
         
         	$view->addExtension(new \Slim\Views\TwigExtension($container['router'], $container['request']->getUri()));
+        	
+        	$fullUrl = $container["request"]->getUri()->getBasePath();
+        	$fullUrl .= "/";
+        	$fullUrl .= $container["request"]->getUri()->getPath();
+    	    $view->getEnvironment()->addGlobal("current_path", $fullUrl);
         	return $view;
         };
         

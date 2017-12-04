@@ -24,9 +24,10 @@ $app->get('/404', 'App\Controllers\HomeController:notFound');
 $app->get('/account', 'App\Controllers\AccountController:account');
 
 $app->group('/auth', function() use ($container) {
-    $this->get('/login', 'App\Controllers\AuthController:login');
-    $this->get('/logout', 'App\Controllers\AuthController:logout');
-    $this->get('/signup', 'App\Controllers\AuthController:signup');
+    
+    $this->map(['GET', 'POST'],'/login', 'App\Controllers\AuthController:login');
+    $this->map(['GET', 'POST'],'/logout', 'App\Controllers\AuthController:logout');
+    $this->map(['GET', 'POST'], '/signup', 'App\Controllers\AuthController:signup');
 });
 
 $app->group('/shop', function() use ($container) {
