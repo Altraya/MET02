@@ -19,9 +19,9 @@ class Utilities {
     {
         $sanitizedParameters = array();
         
-        foreach($parameters as $param)
+        foreach($parameters as $param => $key)
         {
-            $sanitizedParameters[] = htmlspecialchars($param);
+            $sanitizedParameters[$key] = htmlspecialchars($param);
         }
         return $sanitizedParameters;
     }
@@ -52,7 +52,7 @@ class Utilities {
         foreach($arrayOfFieldNameToCheck as $fieldName)
         {
             //http://php.net/manual/fr/function.array-key-exists.php
-            $isKeyExist = array_key_exists ($fieldName , $parameters); //check if field exist
+            $isKeyExist = array_key_exists($fieldName , $parameters); //check if field exist
             
             if($isKeyExist)
             {
@@ -64,7 +64,6 @@ class Utilities {
                     $msg = "The field ".$fieldName." is missing and it is required, please fill it and retry";
                     $ownResponse->setIsGood($fieldIsNull);
                     $ownResponse->setMessage($msg);
-                    var_dump($ownResponse); 
                     break;
                 }
             }else{
@@ -76,8 +75,6 @@ class Utilities {
             }
                 
         }
-        
-        
         
         return $ownResponse;
     }
