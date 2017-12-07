@@ -5,10 +5,9 @@ use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Utilities\Utilities;
-
-require_once("app/utilities/Response.class.php");
-require_once("app/utilities/Utilities.class.php");
-
+use App\Models\User;
+use App\Managers\UserManager;
+use App\Utilities\Response;
 
 class AuthController {
     
@@ -40,36 +39,30 @@ class AuthController {
         {
             $parameters = $request->getParams(); //get post parameters
             
-            //'login' => string(4) "yrdy" 'pwd' => string(0) "" 'pwdCheck' => string(0) "" 'firstName' => string(0) "" 'lastName' => string(0) "" 'birthdate' => string(0) "" 'email' => string(0) "" 'tel' => string(0) "" 'address' => string(0) "" 'postalcode' => string(0) "" 'city' => string(0) "" }
-            $sanitizedParameters = Utilities::Sanitize($parameters); //htmlspecialchars all fields
-            var_dump($sanitizedParameters);
-            
-            //name of required fields
-            $arrayOfFieldNameToCheck = array("login", "pwd", "pwdCheck", "firstName", "lastName", "birthdate", "email", "tel", "address", "postalcode", "city");
-            
-            //check if the user has filled all inputs
-            $ownResponse = Utilities::CheckIfAllFieldsExists($sanitizedParameters, $arrayOfFieldNameToCheck); //ownResponse contain a bool to know if all worked fine and a correspondant message
-            
-            //check parameters 
-            if($ownResponse->getIsGood())
-            {
-                $ownResponse = checkSignupFormFields($sanitizedParameters);
-                if($ownResponse->getIsGood())
-                {
-                    //all is good so :
-                    //so now we need to generate a salt and to hash password
-                    $salt = "Why is Batman so salty? Na Na Na Na Na Na Na Na Batman!"; //<--- our amazing salt
-                    $remakePwd = $salt . $sanitizedParameters["pwd"];
-                    $hashedPwd = hash('sha256', $remakePwd);
-                    
-                    //create model
-                    $newUser = new User($sanitizedParameters);
-                    $newUser->setPwd($hashedPwd);
-                    $newUser->setSalt($salt);
-                    
-                    $newUser->save();
-                }//else will return the $ownResponse message bellow
+            $ownResponse = new Response([], []);
+
+            //create model
+            try {
+                //don't be efraid, validation rules and sanitize of $parameters are
+                //in User setters
                 
+                $newUser = new User($parameters);
+                var_dump($parameters);
+                var_dump($newUser);
+                
+                //get back userManager to persist our entity
+                $userManager = new UserManager();
+                $userManager->getEntityManager();
+                $userManager->getEntityManager()->persist($newUser);
+                $userManager->getEntityManager()->flush();
+                
+                $ownResponse->setIsGood(false);
+                $ownResponse->setMessage("Successfully signed up ! One more unicorn friend, yeah !");
+                
+            }catch(\Exception $ex)
+            {
+                $ownResponse->setIsGood(false);
+                $ownResponse->setMessage("Error : ".$ex->getMessage()); //TODO
             }
             
     	    $result = $this->view->render($response, 'signup.twig', array("message" => $ownResponse->getMessage()));

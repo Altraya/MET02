@@ -117,7 +117,7 @@ class Question
     /**
      * Gets values for the autocompleter.
      *
-     * @return null|array|\Traversable
+     * @return null|iterable
      */
     public function getAutocompleterValues()
     {
@@ -127,7 +127,7 @@ class Question
     /**
      * Sets values for the autocompleter.
      *
-     * @param null|array|\Traversable $values
+     * @param null|iterable $values
      *
      * @return $this
      *
@@ -160,7 +160,7 @@ class Question
      *
      * @return $this
      */
-    public function setValidator(callable $validator = null)
+    public function setValidator($validator)
     {
         $this->validator = $validator;
 
@@ -220,7 +220,7 @@ class Question
      *
      * @return $this
      */
-    public function setNormalizer(callable $normalizer)
+    public function setNormalizer($normalizer)
     {
         $this->normalizer = $normalizer;
 

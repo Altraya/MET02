@@ -4,6 +4,8 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
 use App\Handlers\NotFoundHandler;
 
 require_once('app/handler/NotFoundHandler.class.php');
@@ -17,9 +19,7 @@ class FrontController {
 	            'displayErrorDetails' => true,
 	        ],    
         ];
-        
 
-    	
         //$app = new \Slim\App;
         $c = new \Slim\Container($configuration);
         $app = new \Slim\App($c);
