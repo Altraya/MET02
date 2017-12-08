@@ -120,10 +120,11 @@ class User
 	}
 	public function setBirthdate($birthdate)
 	{
+		//birthdate like 4 December, 2017
 		$birthdate = htmlspecialchars($birthdate);
-		
-		$birthdate = DateTime::createFromFormat('j F, Y', $birthdate);
-		$this->_birthdate = $birthdate->format('Y-m-d');
+		$dateBirthdate = \DateTime::createFromFormat('j M, Y', $birthdate);
+		$newDateString = $dateBirthdate->format('Y-m-d');
+		$this->_birthdate = $dateBirthdate;
 	}
 	
 	/************************/

@@ -91,3 +91,20 @@ $app->group('/shop', function() use ($container) {
     
     
 https://met02-karakayn.c9users.io/phpmyadmin
+
+TODO :
+Faire en sorte que le signup marche (prise en compte du birthdate + reajout de la validation) 
+Ajout de validation js entre les deux password pour qu'ils correspondent 
+faire en sorte que la connexion marche
+
+ajouter un lien sur chaque image : pour emmener vers un item ou une category precise
+
+ajouter les models/entity pour chaque table
+
+faire la page de paiement 
+
+faire la recherche
+
+faire la query pour le catalogue
+
+faire la panier avec les sessions phpay 

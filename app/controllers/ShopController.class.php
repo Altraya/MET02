@@ -19,6 +19,7 @@ class ShopController {
     public function shop(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
         $category = $request->getAttribute('category');
+        $articleManager = new ArticleManager();
 	    $result = $this->view->render($response, 'catalog.twig', ["category" => $category]);
 	    return $result;
 	    

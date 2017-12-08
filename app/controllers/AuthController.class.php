@@ -47,9 +47,7 @@ class AuthController {
                 //in User setters
                 
                 $newUser = new User($parameters);
-                var_dump($parameters);
-                var_dump($newUser);
-                
+
                 //get back userManager to persist our entity
                 $userManager = new UserManager();
                 $userManager->getEntityManager();
@@ -62,7 +60,7 @@ class AuthController {
             }catch(\Exception $ex)
             {
                 $ownResponse->setIsGood(false);
-                $ownResponse->setMessage("Error : ".$ex->getMessage()); //TODO
+                $ownResponse->setMessage("Error : ".$ex->getMessage()); 
             }
             
     	    $result = $this->view->render($response, 'signup.twig', array("message" => $ownResponse->getMessage()));
