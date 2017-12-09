@@ -4,7 +4,8 @@
 <body>
     {% include 'include/header.twig' %}
     <section id="bodyPage" class="container">
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     </section>
     {%include 'include/footer.twig'%}
     <script type="text/javascript" src="{{ baseUrl ~ 'js/materialize.min.js' }}"></script>

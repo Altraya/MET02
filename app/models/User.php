@@ -18,47 +18,47 @@ class User
      * @Column(name="idUser", type="integer", nullable=false)
      * @GeneratedValue(strategy="AUTO")
      */
-    private $_id;
+    private $id;
 
     /**
      * @var string
      * @Column(name="login", type="string", length=45, nullable=false)
      */
-    private $_login;
+    private $login;
 
     /**
      * @var string
      * @Column(name="email",type="string", length=50, nullable=false)
      */
-    private $_email;
+    private $email;
     
     /**
      * @var string
      * @Column(name="password",type="string", length=255, nullable=false)
      */
-    private $_pwd;
+    private $pwd;
     
     /**
      * @var string
      * @Column(name="firstname", type="string", length=45, nullable=false)
      */
-    private $_firstName;
+    private $firstName;
     
     /**
      * @var string
      * @Column(name="lastname", type="string", length=45, nullable=false)
      */
-    private $_lastName;
+    private $lastName;
     
     /**
      * @var date
      * @Column(name="birthname", type="date", name="birthdate", nullable=false)
      * 
      */
-    private $_birthdate;
+    private $birthdate;
     
     /*Constructor*/
-	public function __construct($data){
+	public function construct($data){
 		$this->hydrate($data);
 		
 		//not in use now ... but was so cool, so keep it here in comment :< 
@@ -70,39 +70,39 @@ class User
 	****************************/
 	
 	public function getId(){
-		return $this->_id;
+		return $this->id;
 	}
 	public function getLogin(){
-		return $this->_login;
+		return $this->login;
 	}
 	public function getPwd(){
-		return $this->_pwd;
+		return $this->pwd;
 	}
 	public function getFirstName(){
-		return $this->_firstName;
+		return $this->firstName;
 	}
 	public function getLastName(){
-		return $this->_lastName;
+		return $this->lastName;
 	}
     public function getEmail(){
-        return $this->_email;
+        return $this->email;
     }
     public function getBirthdate(){
-    	return $this->_birthdate;
+    	return $this->birthdate;
     }
 	/************************/
 	
 	public function setId($id){
-		$this->_id = $id;
+		$this->id = $id;
 	}
 	public function setLogin($login){
 		
-		$this->_login = htmlspecialchars($login);	
+		$this->login = htmlspecialchars($login);	
 	}
 	public function setPwd($pwd){
 		try{
-			$hashedPwd = password_hash(htmlspecialchars($pwd), PASSWORD_DEFAULT); //generate random salt
-        	$this->_pwd = $hashedPwd;
+			$hashedPwd = passwordhash(htmlspecialchars($pwd), PASSWORDDEFAULT); //generate random salt
+        	$this->pwd = $hashedPwd;
 		}catch(\Exception $ex)
 		{
 			echo($ex->getMessage());
@@ -110,13 +110,13 @@ class User
         
 	}
 	public function setFirstName($firstName){
-		$this->_firstName = htmlspecialchars($firstName);	
+		$this->firstName = htmlspecialchars($firstName);	
 	}
 	public function setLastName($lastName){
-		$this->_lastName = htmlspecialchars($lastName);	
+		$this->lastName = htmlspecialchars($lastName);	
 	}
 	public function setEmail($email){
-	    $this->_email = htmlspecialchars($email);
+	    $this->email = htmlspecialchars($email);
 	}
 	public function setBirthdate($birthdate)
 	{
@@ -124,7 +124,7 @@ class User
 		$birthdate = htmlspecialchars($birthdate);
 		$dateBirthdate = \DateTime::createFromFormat('j M, Y', $birthdate);
 		$newDateString = $dateBirthdate->format('Y-m-d');
-		$this->_birthdate = $dateBirthdate;
+			$this->birthdate = $dateBirthdate;
 	}
 	
 	/************************/
@@ -136,9 +136,8 @@ class User
 			// Get back the setter name wich correspond to the attribute 
 			$method = 'set'.ucfirst($key);
 			// if the good setter exist.
-			if(method_exists($this, $method))
+			if(methodexists($this, $method))
 			{
-				// call setter but if the value is equal to "" we need to set null
 				$this->$method($value);
 			}
 		}

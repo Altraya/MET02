@@ -19,15 +19,28 @@ class ArticleManager extends ConnectionAbstractManager
 
         //TODO not finished
         $articles = $this->getEntityManager()->getRepository('App\Models\Article')->findAll();
-        $articles = array_map(function($article) {
-            return $this->convertToArray($article); },
-            $articles);
-        $data = json_encode($articles);
-       
+        
+        return $articles;
+    }
+    
+    /**
+     * @param category : category of article we want
+     * @return an array of Article object or null 
+    */
+    public function getArticlesByCategory($categoryName)
+    {
+        $articles = NULL;
+        
+        $repository = $this->getEntityManager()->getRepository("App\Models\Category");
 
-        // @TODO handle correct status when no data is found...
-
-        return json_encode($data);
+        $category = $repository->findOneByName($categoryName);
+        
+        var_dump($category);
+        if($category != NULL)
+        {
+            $articles = $category->getArticles();
+        }
+        return $articles;
     }
     
 }

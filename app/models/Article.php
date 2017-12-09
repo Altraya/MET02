@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models;
 use Doctrine\ORM\Mapping;
+use Doctrine\Common\Collections;
 
 /**
  * @Entity
@@ -18,38 +19,47 @@ class Article
      * @Column(name="idArticle", type="integer", nullable=false)
      * @GeneratedValue(strategy="AUTO")
      */
-    private $_id;
+    private $id;
 
     /**
      * @var string
      * @Column(name="name", type="string", length=45, nullable=false)
      */
-    private $_name;
+    private $name;
 
     /**
      * @var string
      * @Column(name="description",type="string", nullable=true)
      */
-    private $_description;
+    private $description;
     
     /**
      * @var string
-     * @Column(name="priceHT",type="decimal", precision=10, scale=3 nullable=false)
+     * @Column(name="priceHT",type="decimal", precision=10, scale=3, nullable=false)
      */
-    private $_priceHT;
+    private $priceHT;
     
     /**
      * @var string
      * @Column(name="size", type="string", length=3, nullable=true)
      */
-    private $_size;
+    private $size;
+    
+    /*
+     * Many articles have many categories
+     * @ManyToMany(targetEntity="App\Models\Category", inversedBy="articles")
+     * @JoinTable(name="articlesCategories",
+     *  joinColumns={@JoinColumn(name="idArticle", referencedColumnName="idArticle")},
+     *  inverseJoinColumns={@JoinColumn(name="idCategory", referencedColumnName="idCategory")}
+     * )
+    */
+    private $categories;
     
     /*Constructor*/
-	public function __construct($data){
-		$this->hydrate($data);
-		
-		//not in use now ... but was so cool, so keep it here in comment :< 
-		//$salt = "Why is Batman so salty? Na Na Na Na Na Na Na Na Batman!"; //<--- our amazing salt
+	public function __construct(){
+	    echo"tata";
+        $this->categories = new ArrayCollection();
+        echo"tata";
 	}
 	
 	/***************************
@@ -57,39 +67,55 @@ class Article
 	****************************/
 	
 	public function getId(){
-		return $this->_id;
+		return $this->id;
 	}
 	public function getName(){
-		return $this->_name;
+		return $this->name;
 	}
 	public function getDescription(){
-		return $this->_description;
+		return $this->description;
 	}
 	public function getPriceHT(){
-		return $this->_priceHT;
+		return $this->priceHT;
 	}
     public function getSize(){
-        return $this->_size;
+        return $this->size;
+    }
+    public function getCategories(){
+        return $this->categories;
     }
     
 	/************************/
 	
 	public function setId($id){
-		$this->_id = $id;
+		$this->id = $id;
 	}
 	public function setName($name){
 		
-		$this->_name = htmlspecialchars($name);	
+		$this->name = htmlspecialchars($name);	
 	}
 	public function setDescription($description){
-		$this->_description = htmlspecialchars($description);	
+		$this->description = htmlspecialchars($description);	
 	}
 	public function setPriceHT($priceHT){
-		$this->_priceHT = htmlspecialchars($priceHT);	
+		$this->priceHT = htmlspecialchars($priceHT);	
 	}
 	public function setSize($size){
-		$this->_size = htmlspecialchars($size);	
+		$this->size = htmlspecialchars($size);	
 	}
+	public function setCategories($categories){
+	    $this->categories = $categories;
+	}
+	
+	/***************************
+		Getters / Setters
+	****************************/
+
+	public function addCategory(App\Models\Category $category)
+    {
+        $category->addArticle($this); // synchronously updating inverse side
+        $this->categories[] = $category;
+    }
 	
 	/************************/
 	
@@ -100,9 +126,8 @@ class Article
 			// Get back the setter name wich correspond to the attribute 
 			$method = 'set'.ucfirst($key);
 			// if the good setter exist.
-			if(method_exists($this, $method))
+			if(methodexists($this, $method))
 			{
-				// call setter but if the value is equal to "" we need to set null
 				$this->$method($value);
 			}
 		}

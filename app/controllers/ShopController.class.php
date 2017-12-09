@@ -4,6 +4,7 @@ namespace App\Controllers;
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Managers\ArticleManager;
 
 class ShopController {
     
@@ -20,7 +21,8 @@ class ShopController {
     {
         $category = $request->getAttribute('category');
         $articleManager = new ArticleManager();
-	    $result = $this->view->render($response, 'catalog.twig', ["category" => $category]);
+        $articles = $articleManager->getArticlesByCategory($category);
+	    $result = $this->view->render($response, 'catalog.twig', ["category" => $category, "articles" => $articles]);
 	    return $result;
 	    
     }
