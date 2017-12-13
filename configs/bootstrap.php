@@ -1,11 +1,11 @@
 <?php
 
 require_once("vendor/autoload.php");
-require_once("../../managers/ConnectionManager.php");
+require_once("app/managers/ConnectionManager.php");
 // bootstrap.php
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use App\Models\ConnectionManager;
+use App\Managers\ConnectionManager;
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;

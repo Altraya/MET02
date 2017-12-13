@@ -19,7 +19,7 @@ class FrontController {
 	            'displayErrorDetails' => true,
 	        ],    
         ];
-        require_once('app/bootstrap.php');
+        require_once('configs/bootstrap.php');
         
                 //$app = new \Slim\App;
         $c = new \Slim\Container($configuration);
