@@ -24,7 +24,7 @@ class ConnectionManager
      */
     public function createEntityManager()
     {
-        $path = array(__DIR__.'/app/managers');
+        $path = array(__DIR__);
         $devMode = true;
         $config = Setup::createAnnotationMetadataConfiguration($path, $devMode);
         // define credentials...
