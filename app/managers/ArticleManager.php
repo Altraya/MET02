@@ -34,8 +34,11 @@ class ArticleManager extends ConnectionAbstractManager
         $repository = $this->getEntityManager()->getRepository("App\Models\Category");
 
         $category = $repository->findOneByName($categoryName);
-        
         var_dump($category);
+
+       /* $repositoryArticle = $this->getEntityManager()->getRepository("App\Models\Article");
+        
+        $articles = $repositoryArticle->findByCategories($category);*/
         if($category != NULL)
         {
             $articles = $category->getArticles();

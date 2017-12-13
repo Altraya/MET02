@@ -1,17 +1,14 @@
 <?php
-
 namespace App\Managers;
-
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 
-abstract class ConnectionAbstractManager
+class ConnectionManager
 {
     /**
      * @var \Doctrine\ORM\EntityManager
      */
     private $entityManager = null;
-
     /**
      * @return \Doctrine\ORM\EntityManager
      */
@@ -20,10 +17,8 @@ abstract class ConnectionAbstractManager
         if ($this->entityManager === null) {
             $this->entityManager = $this->createEntityManager();
         }
-
         return $this->entityManager;
     }
-
     /**
      * @return EntityManager
      */
@@ -31,9 +26,7 @@ abstract class ConnectionAbstractManager
     {
         $path = array(__DIR__.'/app/managers');
         $devMode = true;
-
         $config = Setup::createAnnotationMetadataConfiguration($path, $devMode);
-
         // define credentials...
         $connectionOptions = array(
             'driver'   => 'pdo_mysql',
@@ -43,7 +36,6 @@ abstract class ConnectionAbstractManager
             'password' => 'MyLittleUnicornShop',
             'charset'  => 'utf8'
         );
-
         return EntityManager::create($connectionOptions, $config);
     }
 }

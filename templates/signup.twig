@@ -10,20 +10,20 @@
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">account_circle</i>
-        <input id="login" name="login" type="text" class="validate">
+        <input id="login" name="login" type="text" class="validate" >
         <label for="login">Login</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">lock</i>
-        <input id="password" name="pwd" type="password" class="validate">
+        <input id="password" name="pwd" type="password" class="validate" onchange="checkPassword()">
         <label for="password">Password</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">lock</i>
-        <input id="password2" name="pwdCheck" type="password" class="validate">
-        <label for="password2">Password confirmation</label>
+        <input id="password2" name="pwdCheck" type="password" class="validate" onchange="checkPassword()">
+        <label for="password2" data-error="The 2 passwords are differents">Password confirmation</label>
       </div>
     </div>
     

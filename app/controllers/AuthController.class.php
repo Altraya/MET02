@@ -38,21 +38,21 @@ class AuthController {
         if($request->isPost())
         {
             $parameters = $request->getParams(); //get post parameters
-            
+
             $ownResponse = new Response([], []);
 
             //create model
             try {
                 //don't be efraid, validation rules and sanitize of $parameters are
                 //in User setters
-                
-                $newUser = new User($parameters);
 
+                $newUser = new User($parameters);
+               
                 //get back userManager to persist our entity
                 $userManager = new UserManager();
-                $userManager->getEntityManager();
-                $userManager->getEntityManager()->persist($newUser);
-                $userManager->getEntityManager()->flush();
+                $entityManagerUser = $userManager->getEntityManager();
+                $entityManagerUser->persist($newUser);
+                $entityManagerUser->flush();
                 
                 $ownResponse->setIsGood(false);
                 $ownResponse->setMessage("Successfully signed up ! One more unicorn friend, yeah !");

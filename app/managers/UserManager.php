@@ -19,7 +19,7 @@ class UserManager extends ConnectionAbstractManager
     public function get($id)
     {
         if ($id === null) {
-            $users = $this->getEntityManager()->getRepository('App\Models\User')->findAll();
+            $users = $entityManager->getRepository('App\Models\User')->findAll();
             $users = array_map(function($user) {
                 return $this->convertToArray($user); },
                 $users);

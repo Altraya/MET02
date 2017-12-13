@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
@@ -8,8 +9,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use App\Handlers\NotFoundHandler;
 
-require_once('app/handler/NotFoundHandler.class.php');
-require_once('vendor/autoload.php');
+
 
 class FrontController {
     public function __construct()
@@ -19,8 +19,9 @@ class FrontController {
 	            'displayErrorDetails' => true,
 	        ],    
         ];
-
-        //$app = new \Slim\App;
+        require_once('app/bootstrap.php');
+        
+                //$app = new \Slim\App;
         $c = new \Slim\Container($configuration);
         $app = new \Slim\App($c);
         

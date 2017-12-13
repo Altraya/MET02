@@ -58,9 +58,9 @@ class User
     private $birthdate;
     
     /*Constructor*/
-	public function construct($data){
-		$this->hydrate($data);
+	public function __construct($data){
 		
+		$this->hydrate($data);
 		//not in use now ... but was so cool, so keep it here in comment :< 
 		//$salt = "Why is Batman so salty? Na Na Na Na Na Na Na Na Batman!"; //<--- our amazing salt
 	}
@@ -96,12 +96,11 @@ class User
 		$this->id = $id;
 	}
 	public function setLogin($login){
-		
 		$this->login = htmlspecialchars($login);	
 	}
 	public function setPwd($pwd){
 		try{
-			$hashedPwd = passwordhash(htmlspecialchars($pwd), PASSWORDDEFAULT); //generate random salt
+			$hashedPwd = password_hash(htmlspecialchars($pwd), PASSWORD_DEFAULT); //generate random salt
         	$this->pwd = $hashedPwd;
 		}catch(\Exception $ex)
 		{
@@ -124,7 +123,7 @@ class User
 		$birthdate = htmlspecialchars($birthdate);
 		$dateBirthdate = \DateTime::createFromFormat('j M, Y', $birthdate);
 		$newDateString = $dateBirthdate->format('Y-m-d');
-			$this->birthdate = $dateBirthdate;
+		$this->birthdate = $dateBirthdate;
 	}
 	
 	/************************/
@@ -136,7 +135,7 @@ class User
 			// Get back the setter name wich correspond to the attribute 
 			$method = 'set'.ucfirst($key);
 			// if the good setter exist.
-			if(methodexists($this, $method))
+			if(method_exists($this, $method))
 			{
 				$this->$method($value);
 			}

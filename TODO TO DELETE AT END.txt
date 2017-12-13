@@ -94,7 +94,7 @@ https://met02-karakayn.c9users.io/phpmyadmin
 
 TODO :
 Faire en sorte que le signup marche (prise en compte du birthdate + reajout de la validation) 
-Ajout de validation js entre les deux password pour qu'ils correspondent 
+Ajout de validation js entre les deux password pour qu'ils correspondent.OK
 faire en sorte que la connexion marche
 
 ajouter un lien sur chaque image : pour emmener vers un item ou une category precise

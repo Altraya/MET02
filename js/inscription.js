@@ -29,3 +29,16 @@ function checkPhone()
     else
         phone.setCustomValidity("Invalid field.");
 }
+
+function checkPassword()
+{
+    console.log(password.value);
+    console.log("test");
+    if(password.value && password2.value)
+    {
+        if(password.value == password2.value)
+            password2.setCustomValidity("");
+        else
+            password2.setCustomValidity("Invalid field.");
+    }
+}
