@@ -8,7 +8,7 @@ use App\Models\User;
 /**
  * User Manager : CRUD operation and user management 
  */
-class UserManager extends ConnectionAbstractManager
+class UserManager extends ConnectionManager
 {
 
     /**

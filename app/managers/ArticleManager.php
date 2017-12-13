@@ -8,7 +8,7 @@ use App\Models\Article;
 /**
  * Article Manager : CRUD operation and Article management 
  */
-class ArticleManager extends ConnectionAbstractManager
+class ArticleManager extends ConnectionManager
 {
 
     /**     
