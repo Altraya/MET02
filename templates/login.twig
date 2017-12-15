@@ -1,7 +1,9 @@
 {# templates/login.twig #}
 {% extends "include/layout.twig" %}
 {% block body %}
-      
+
+  {{message}}
+  
   <h1>CONNECTION</h1>
   <div class="divider"></div>
   <div class="row">
@@ -9,11 +11,11 @@
     <!-- Login -->
     <div class="col m6 s12">
       <h2>Login</h2>
-      <form id="login">
+      <form id="formLogin" method="POST" action="{{current_path}}">
         <div class="row">
           <div class="input-field col m8 s12">
             <i class="material-icons prefix">account_circle</i>
-            <input id="login" type="text" class="validate">
+            <input id="login" name="login" type="text" class="validate">
             <label for="login">Login</label>
           </div>
           <div class="col m4 s0">
@@ -23,7 +25,7 @@
         <div class="row">
           <div class="input-field col m8 s12">
             <i class="material-icons prefix">lock</i>
-            <input id="password" type="password" class="validate">
+            <input id="password" name="password" type="password" class="validate">
             <label for="password">Password</label>
           </div>
           <div class="col m4 s0">
@@ -32,7 +34,7 @@
       
         <div class="row">
           <div class="col m8 s12 flexIt">
-            <button type="submit" class="mediumButtonCentered btn customLessPinkBackground borderPink">Login</button>
+            <button type="submit" class="mediumButtonCentered btn customLessPinkBackground borderPink" form="formLogin">Login</button>
           </div>
           <div class="col m4 s0">
           </div>

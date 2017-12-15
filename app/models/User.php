@@ -27,7 +27,7 @@ class User
     private $login;
 
     /**
-     * @var string
+     * @var string 
      * @Column(name="email",type="string", length=50, nullable=false)
      */
     private $email;
@@ -139,6 +139,27 @@ class User
 			{
 				$this->$method($value);
 			}
+		}
+	}
+	
+	/* Public methods*/
+	
+	/**
+	 * Check if the pwd in parameter match with our pwd
+	 * @param $unhashedPassword : password to check -> in clear
+	 * @return true if the $unhashedPassword match with our password $this->pwd
+	 * 
+	 */
+	public function checkIfPasswordForLoginMatch($unhashedPassword)
+	{
+		try{
+			// boolean password_verify ( string $password , string $hash )
+			$result = password_verify($unhashedPassword, $this->pwd);
+			return $result;
+			
+		}catch(\Exception $ex)
+		{
+			echo($ex->getMessage());
 		}
 	}
 

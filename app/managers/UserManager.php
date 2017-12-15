@@ -33,4 +33,21 @@ class UserManager extends ConnectionManager
         return json_encode($data);
     }
     
+    /**
+     * @param login : login of user we want
+     * @return an User if it exist in DB or null
+    */
+    public function getUserByLogin($login)
+    {
+        if($login == null) return;
+        
+        $user = NULL;
+        
+        $repository = $this->getEntityManager()->getRepository("App\Models\User");
+
+        $user = $repository->findOneByLogin($login);
+
+        return $user;
+    }
+    
 }

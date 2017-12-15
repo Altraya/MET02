@@ -14,7 +14,7 @@ use App\Handlers\NotFoundHandler;
 class FrontController {
     public function __construct()
 	{
-	    $configuration = [
+	    $configuration = [ 
 	        'settings' => [
 	            'displayErrorDetails' => true,
 	        ],    
@@ -37,7 +37,7 @@ class FrontController {
         $container['view'] = function($container) {
         	
         	$view = new \Slim\Views\Twig(__DIR__ . '/../../templates', 
-        	    ['cache' => false]
+        	    ['cache' => false, 'debug' => true]
         	);
         
         	$view->addExtension(new \Slim\Views\TwigExtension($container['router'], $container['request']->getUri()));
@@ -46,6 +46,9 @@ class FrontController {
         	$fullUrl .= "/";
         	$fullUrl .= $container["request"]->getUri()->getPath();
     	    $view->getEnvironment()->addGlobal("current_path", $fullUrl);
+    	    $view->getEnvironment()->addGlobal('session', $_SESSION);
+    	    
+            $view->addExtension(new \Twig_Extension_Debug());
         	return $view;
         };
         

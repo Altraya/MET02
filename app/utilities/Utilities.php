@@ -9,7 +9,7 @@ class Utilities {
     public static function CheckIfNotNull($varToCheck)
     {
         
-        if(htmlspecialchars($varToCheck) != "" && htmlspecialchars($varToCheck) != NULL)
+        if($varToCheck != "" && $varToCheck != NULL)
             return true;
         return false;
     }
@@ -19,7 +19,7 @@ class Utilities {
     {
         $sanitizedParameters = array();
         
-        foreach($parameters as $param => $key)
+        foreach($parameters as $key => $param)
         {
             $sanitizedParameters[$key] = htmlspecialchars($param);
         }

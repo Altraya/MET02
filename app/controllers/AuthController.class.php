@@ -22,7 +22,57 @@ class AuthController {
     
     public function login(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-	    $result = $this->view->render($response, 'login.twig', []);
+        if($request->isPost())
+        {
+            $ownResponse = new Response([], []);
+            
+            $parameters = $request->getParams();
+
+            //htmlspecialchars all parameters
+            $sanitizedParameters = Utilities::Sanitize($parameters);
+
+            $login = $sanitizedParameters["login"];
+            $pwd = $sanitizedParameters["password"];
+            
+            if($login != null && $pwd != null){
+                
+                $userManager = new UserManager();
+                
+                $user = $userManager->getUserByLogin($login);
+
+                if($user)
+                {
+                    if($user->checkIfPasswordForLoginMatch($pwd)) //check if password match
+                    {
+                        $ownResponse->setIsGood(true);
+                        $ownResponse->setMessage("Login successfully");
+                        
+                        //set session ID
+                        if(!isset($_SESSION["initiated"]))
+                        {
+                            session_regenerate_id();
+                            $_SESSION["initiated"] = true;
+                        }
+                        
+                        $_SESSION["username"] = $user->getLogin();
+                    }else{
+                        $ownResponse->setIsGood(false);
+                        $ownResponse->setMessage("You entered a wrong password");
+                    }
+        
+                }else{
+                    $ownResponse->setIsGood(false);
+                    $ownResponse->setMessage("This login doesn't exist");
+                }
+            }else{
+                $ownResponse->setIsGood(false);
+                $ownResponse->setMessage("Please enter a login and a password");
+            }
+            
+    	    $result = $this->view->render($response, 'login.twig', array("message" => $ownResponse->getMessage()));
+        }else{
+            $result = $this->view->render($response, 'login.twig', []);
+        }
 	    return $result;
     }
     

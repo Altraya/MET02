@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	// LIBS
     require_once 'app/controllers/FrontController.class.php';
 
