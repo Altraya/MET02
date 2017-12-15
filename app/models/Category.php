@@ -34,7 +34,7 @@ class Category
      */
     private $percentTaxe;
 
-    /*
+    /**
      * Many categories have many articles
      * @ManyToMany(targetEntity="App\Models\Article", inversedBy="categories")
      * @JoinTable(name="articlesCategories",
@@ -47,8 +47,6 @@ class Category
     
     /*Constructor*/
 	public function __construct(){
-	    $toto = "toto";
-	    var_dump($toto);
         $this->articles = new ArrayCollection();
 	}
 	
@@ -92,7 +90,6 @@ class Category
 
 	public function addArticle(App\Models\Article $article)
     {
-    	var_dump($article);
         $article->addCategory($this); // synchronously updating inverse side
         $this->articles[] = $article;
     }

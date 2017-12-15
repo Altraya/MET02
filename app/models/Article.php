@@ -45,9 +45,9 @@ class Article
      */
     private $size;
     
-    /*
+    /**
      * Many articles have many categories
-     * @ManyToMany(targetEntity="App\Models\Category", inversedBy="articles")
+     * @ManyToMany(targetEntity="App\Models\Category", mappedBy="articles")
      * @JoinTable(name="articlesCategories",
      *  joinColumns={@JoinColumn(name="idArticle", referencedColumnName="idArticle")},
      *  inverseJoinColumns={@JoinColumn(name="idCategory", referencedColumnName="idCategory")}
@@ -57,9 +57,7 @@ class Article
     
     /*Constructor*/
 	public function __construct(){
-	    echo"tata";
         $this->categories = new ArrayCollection();
-        echo"tata";
 	}
 	
 	/***************************
