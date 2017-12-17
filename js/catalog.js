@@ -29,7 +29,8 @@ $(document).ready(function(){
                 
                 //update total price at bottom
                 //we just retrive the price of the article we just have generated to add it to general price
-                var priceOfLastAddedArticle = $("#titleCart").children(".priceHTArticle:first-child").text();
+                var rowOfNewAddArticle= $("#titleCart").next(".rowArticleMiniCart");
+                var priceOfLastAddedArticle = $(rowOfNewAddArticle).find(".priceHTArticle").text();
                 priceOfLastAddedArticle = parseFloat(priceOfLastAddedArticle);
               
                 var totalPriceHT = $("#totalHTMiniCart").text();

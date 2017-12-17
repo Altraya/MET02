@@ -95,7 +95,7 @@ https://met02-karakayn.c9users.io/phpmyadmin
 TODO :
 Faire en sorte que le signup marche (prise en compte du birthdate + reajout de la validation) 
 Ajout de validation js entre les deux password pour qu'ils correspondent.OK
-faire en sorte que la connexion marche
+faire en sorte que la connexion marche ok
 
 ajouter un lien sur chaque image : pour emmener vers un item ou une category precise
 
@@ -105,6 +105,14 @@ faire la page de paiement
 
 faire la recherche
 
-faire la query pour le catalogue
+faire la query pour le catalogue ok
 
-faire la panier avec les sessions phpay 
+faire la panier avec les sessions phpay ok
+
+Mini bug a corriger si on a le temps :
+
+Bug 2 : quand je me login ca reload pas la page du coup on voit pas tout de suite qu'on est co
+Bug 3 : Mettre des trucs qui cut les longs text
+Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le prix pas bien update decoulant du premier glitch)
+
+Features manquantes : sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd

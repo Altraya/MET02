@@ -13,33 +13,6 @@
     {% include 'include/miniCartItem.twig' with {'article': article} %}
     {% set articlesTotalPrice = "%.2f"|format(articlesTotalPrice) + "%.2f"|format(article.priceHT) %}
   {% endfor %}
-  
-  <div class="row noMarginBottom">
-    <div class="col s12">
-      <div class="card horizontal maxHeightCardItems">
-        <div class="card-image imgCartItem flexIt">
-          <img src="https://met02-karakayn.c9users.io/MyLittleUnicornShop/img/pastry.png" alt="unicorn pastry">
-        </div>
-        <div class="card-stacked flexIt">
-          <div class="card-content noPadding maxHeight">
-            <div class="row autoMargin">
-              <div class="col s12">
-                <h4 class="">Unicorn pastry</h4>
-              </div>
-            </div>
-            <div class="row autoMargin">
-              <div class="col s9">
-                <p>Quantity : 1.</p>
-              </div>
-              <div class="col s3">
-                <p class="right pinkMaterializeColor">5,99€</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="divider"></div>
   

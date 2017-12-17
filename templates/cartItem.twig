@@ -1,0 +1,21 @@
+<div class="row noMarginBottom">
+    <div class="col s12">
+        <div class="card horizontal maxHeightCardItemsBig">
+            <div class="card-image imgCartItem flexIt">
+                <img src="{{ baseUrl ~ 'img/t-shirt.png' }}" alt="unicorn t-shirt">
+            </div>
+            <div class="card-stacked flexIt">
+                <div class="card-content tenPadding">
+                    <h4 class="">{{ article.name }}</h4>
+                    <p class="miniMarginArround">{{ article.description }}</p>
+                    {% if article.size != "" %}
+                        <p class="miniMarginArround">Size : {{ article.size }}</p>
+                    {% endif %} 
+                    <p class="miniMarginArround">Color : Black</p>
+                    <p class="miniMarginArround">Quantity : 1.</p>
+                    <p class="right pinkMaterializeColor priceBigCard">{{ "%.2f"|format(article.priceHT) }}€</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
