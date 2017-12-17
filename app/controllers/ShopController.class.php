@@ -47,19 +47,17 @@ class ShopController {
         //$em = $articleManager->getEntityManager();
         //$em->detach($article); //detach article categories to let it in session with less useless dependancy
         
-        $_SESSION["articles"][] = $article;
-
-        //$arrayArticle = $article.ToArray();
-        $articleJson = json_encode($article);
-        //var_dump($articleJson);
+        if(!isset($_SESSION["articles"]))
+        {
+            $_SESSION["articles"] = array();
+        }else{
+            $_SESSION["articles"][] = $article;
+        }
         
-        $newResponse = $response->withJson($articleJson);
-
-
-//        $result = $this->view->render($response, 'miniCart.twig', []);
-	    return $newResponse;
+        
+	    return $this->view->render($response, 'include/miniCartItem.twig', ["article" => $article]);;
     }
-    
+
     public function checkout(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
 	    $result = $this->view->render($response, 'checkout.twig', []);

@@ -78,8 +78,10 @@ class AuthController {
     
     public function logout(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-	    $result = $this->view->render($response, 'logout.twig', []);
-	    return $result;
+	    session_destroy();
+	    
+	   
+	    return $response->withRedirect('/', 303);
     }
     
     public function signup(ServerRequestInterface $request, ResponseInterface $response, array $args)
