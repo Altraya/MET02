@@ -22,7 +22,7 @@ $(document).ready(function(){
                 //else we will create the row
                 
                 //so find #titleCart to add row with our article now :)
-                var toAppend = "{% include 'include/miniCartItem.twig' with {'article': article} %}";
+                var toAppend = "<?php {% include 'include/miniCartItem.twig' with {'article': newArticleToAddToCart} %} ?>";
                 $(toAppend).appendTo( $("#titleCart") );
 
             },
