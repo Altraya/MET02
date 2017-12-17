@@ -115,4 +115,6 @@ Bug 2 : quand je me login ca reload pas la page du coup on voit pas tout de suit
 Bug 3 : Mettre des trucs qui cut les longs text
 Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le prix pas bien update decoulant du premier glitch)
 
-Features manquantes : sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
+Features manquantes : 
+    sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
+    pour le cart : faire quelque chose permettant de delete un des items dans notre panier
