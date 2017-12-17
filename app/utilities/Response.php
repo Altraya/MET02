@@ -6,7 +6,7 @@ namespace App\Utilities;
 */
 
 class Response {
-    
+	
     private $_isGood; //boolean to know if all worked fine or not
     private $_message; //message to return
     

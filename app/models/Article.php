@@ -106,7 +106,7 @@ class Article
 	}
 	
 	/***************************
-		Getters / Setters
+		  public function
 	****************************/
 
 	public function addCategory(App\Models\Category $category)

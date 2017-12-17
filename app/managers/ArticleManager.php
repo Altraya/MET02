@@ -42,4 +42,29 @@ class ArticleManager extends ConnectionManager
         return $articles;
     }
     
+    public function getArticleById($idArticle)
+    {
+        $repository = $this->getEntityManager()->getRepository("App\Models\Article");
+
+        $article = $repository->findOneById($idArticle);
+
+        return $article;
+    }
+    
+    /**
+     * Get article with the specified id in parameters
+     * return article (in array and not uggly doctrine object) or null
+     * 
+     */
+    public function getArticleByIdToArray($idArticle)
+    {
+        $result = $this->getEntityManager()->createQueryBuilder();
+        $articleArray = $result->select('a')
+            ->from('App\Models\Article', 'a')
+            ->where('a.id= :id')
+            ->setParameter('id', $idArticle)
+            ->getQuery()
+            ->getOneOrNullResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+        return $articleArray;
+    }
 }

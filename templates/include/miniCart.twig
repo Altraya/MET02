@@ -1,32 +1,9 @@
 <div class="card-panel pinkMaterializeBackground" id="miniCart">
-  <h3 class="white-text center noMarginTop">My cart</h3>
+  <h3 class="white-text center noMarginTop" id="titleCart">My cart</h3>
   
-  <div class="row noMarginBottom">
-    <div class="col s12">
-      <div class="card horizontal maxHeightCardItems">
-        <div class="card-image imgCartItem flexIt">
-          <img src="https://met02-karakayn.c9users.io/MyLittleUnicornShop/img/t-shirt.png" alt="unicorn t-shirt">
-        </div>
-        <div class="card-stacked flexIt">
-          <div class="card-content noPadding maxHeight">
-            <div class="row autoMargin">
-              <div class="col s12">
-                <h4 class="">Unicorn T-shirt</h4>
-              </div>
-            </div>
-            <div class="row autoMargin">
-              <div class="col s9">
-                <p>Size : M | Quantity : 2.</p>
-              </div>
-              <div class="col s3">
-                <p class="right pinkMaterializeColor">45,00€</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% for article in session.articles %}
+    {% include 'include/miniCartItem.twig' with {'article': article} %}
+  {% endfor %}
   
   <div class="row noMarginBottom">
     <div class="col s12">

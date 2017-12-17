@@ -32,6 +32,7 @@ $app->group('/auth', function() use ($container) {
 
 $app->group('/shop', function() use ($container) {
     $this->get('/cart', 'App\Controllers\ShopController:cart');
+    $this->get('/cart/add/{idArticle}', 'App\Controllers\ShopController:addToCart');
     $this->get('/checkout', 'App\Controllers\ShopController:checkout');
     $this->get('/{category}', 'App\Controllers\ShopController:shop');
 
