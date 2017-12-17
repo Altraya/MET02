@@ -13,7 +13,12 @@
           </div>
           <div class="row autoMargin">
             <div class="col s9">
-              <p>Size : {{ article.size }} | Quantity : 1.</p>
+              <p>
+                  {% if article.size != "" %}
+                      Size : {{ article.size }} |
+                  {% endif %} 
+                      Quantity : 1.
+              </p>
             </div>
             <div class="col s3">
               <p class="right pinkMaterializeColor"><span class="priceHTArticle">{{ "%.2f"|format(article.priceHT) }}</span>€</p>
