@@ -51,18 +51,35 @@ class User
     private $lastName;
     
     /**
+     * @var string
+     * @Column(name="phoneNumber", type="string", length=10, nullable=false)
+     */
+    private $phoneNumber;
+    
+    /**
      * @var date
      * @Column(name="birthname", type="date", name="birthdate", nullable=false)
      * 
      */
     private $birthdate;
     
+    /**
+     * Many users can have many addresses
+     * @ManyToMany(targetEntity="App\Models\Address", mappedBy="users")
+     * @JoinTable(name="usersAdresses",
+     *  joinColumns={@JoinColumn(name="idUser", referencedColumnName="idUser")},
+     *  inverseJoinColumns={@JoinColumn(name="idAddress", referencedColumnName="idAddress")}
+     * )
+    */
+    private $addresses;
+    
     /*Constructor*/
-	public function __construct($data){
+	public function __construct(){
 		
-		$this->hydrate($data);
 		//not in use now ... but was so cool, so keep it here in comment :< 
 		//$salt = "Why is Batman so salty? Na Na Na Na Na Na Na Na Batman!"; //<--- our amazing salt
+		$this->addresses = new ArrayCollection();
+
 	}
 	
 	/***************************
@@ -86,6 +103,9 @@ class User
 	}
     public function getEmail(){
         return $this->email;
+    }
+    public function getPhoneNumber(){
+    	return $this->phoneNumber;
     }
     public function getBirthdate(){
     	return $this->birthdate;
@@ -117,6 +137,9 @@ class User
 	public function setEmail($email){
 	    $this->email = htmlspecialchars($email);
 	}
+	public function setPhoneNumber($phoneNumber){
+		$this->phoneNumber = htmlspecialchars($phoneNumber);
+	}
 	public function setBirthdate($birthdate)
 	{
 		//birthdate like 4 December, 2017
@@ -144,6 +167,12 @@ class User
 	
 	/* Public methods*/
 	
+	public function addAddress(App\Models\Address $address)
+    {
+        $address->addUser($this); // synchronously updating inverse side
+        $this->addresses[] = $address;
+    }
+    
 	/**
 	 * Check if the pwd in parameter match with our pwd
 	 * @param $unhashedPassword : password to check -> in clear

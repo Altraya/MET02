@@ -85,7 +85,7 @@ class Category
 	}
 	
 	/***************************
-		Getters / Setters
+		Public function
 	****************************/
 
 	public function addArticle(App\Models\Article $article)

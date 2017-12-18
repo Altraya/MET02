@@ -24,7 +24,7 @@ return array(
     'App\\Routes\\' => array($baseDir . '/app/routes'),
     'App\\Models\\' => array($baseDir . '/app/models'),
     'App\\Managers\\' => array($baseDir . '/app/managers'),
-    'App\\Handler\\' => array($baseDir . '/app/handler'),
+    'App\\Handlers\\' => array($baseDir . '/app/handlers'),
     'App\\Controllers\\' => array($baseDir . '/app/controllers'),
     'App\\' => array($baseDir . '/app'),
 );

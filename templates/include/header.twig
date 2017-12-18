@@ -7,13 +7,9 @@
 			<ul class="right hide-on-med-and-down">
 				<li><a href="{{ baseUrl }}">Home</a></li>
 
-				{% if session.username %}
-					<li><a href="{{ baseUrl ~ 'index.php/account' }}">{{ session.username|title }}'s unicorn account</a></li>
-				{% else %}
-					<li><a href="{{ baseUrl ~ 'index.php/account' }}">Account</a></li>
-				{% endif %}
-				<li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}">Cart</a></li>
-				{% if session.username %}
+				{% if session.login %}
+					<li><a href="{{ baseUrl ~ 'index.php/account' }}">{{ session.login|title }}'s account</a></li>
+					<li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}">Cart</a></li>
 					<li><a href="{{ baseUrl ~ 'index.php/auth/logout' }}">Log out</a></li>
 				{% else %}
 					<li><a href="{{ baseUrl ~ 'index.php/auth/login' }}">Log in / Signup</a></li>
@@ -21,13 +17,10 @@
 			</ul>
 			<ul class="side-nav right" id="mobile-top-menu">
 				<li><a href="{{ baseUrl }}">Home</a></li>
-				{% if session.username %}
-					<li><a href="{{ baseUrl ~ 'index.php/account' }}">{{ session.username|title }}'s account</a></li>
-				{% else %}
-					<li><a href="{{ baseUrl ~ 'index.php/account' }}">Account</a></li>
-				{% endif %}
-				<li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}">Cart</a></li>
-				{% if session.username %}
+			
+				{% if session.login %}
+					<li><a href="{{ baseUrl ~ 'index.php/account' }}">{{ session.login|title }}'s account</a></li>
+					<li><a href="{{ baseUrl ~ 'index.php/shop/cart' }}">Cart</a></li>
 					<li><a href="{{ baseUrl ~ 'index.php/auth/logout' }}">Log out</a></li>
 				{% else %}
 					<li><a href="{{ baseUrl ~ 'index.php/auth/login' }}">Log in / Signup</a></li>

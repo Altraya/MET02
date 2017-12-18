@@ -50,7 +50,7 @@ class ComposerStaticInita0ea6432206038846f08878e19da584c
             'App\\Routes\\' => 11,
             'App\\Models\\' => 11,
             'App\\Managers\\' => 13,
-            'App\\Handler\\' => 12,
+            'App\\Handlers\\' => 13,
             'App\\Controllers\\' => 16,
             'App\\' => 4,
         ),
@@ -129,9 +129,9 @@ class ComposerStaticInita0ea6432206038846f08878e19da584c
         array (
             0 => __DIR__ . '/../..' . '/app/managers',
         ),
-        'App\\Handler\\' => 
+        'App\\Handlers\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app/handler',
+            0 => __DIR__ . '/../..' . '/app/handlers',
         ),
         'App\\Controllers\\' => 
         array (

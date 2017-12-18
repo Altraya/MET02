@@ -114,7 +114,10 @@ Mini bug a corriger si on a le temps :
 Bug 2 : quand je me login ca reload pas la page du coup on voit pas tout de suite qu'on est co
 Bug 3 : Mettre des trucs qui cut les longs text
 Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le prix pas bien update decoulant du premier glitch)
+Bug 5 : CSS des boutons quand on clique dessus pas le meme pour les checkouts
+Bug 6 : enlever onglet account etc quand on est pas connecté
 
 Features manquantes : 
     sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
     pour le cart : faire quelque chose permettant de delete un des items dans notre panier
+    faire la page de recherche

@@ -19,21 +19,21 @@ $container["AuthController"] = function ($container) {
     return new AuthController($container);
 };
 
-$app->get('/', 'App\Controllers\HomeController:home');
-$app->get('/404', 'App\Controllers\HomeController:notFound');
-$app->get('/account', 'App\Controllers\AccountController:account');
+$app->get('/', 'App\Controllers\HomeController:home')->setName('home');
+$app->get('/404', 'App\Controllers\HomeController:notFound')->setName('notFound');
+$app->get('/account', 'App\Controllers\AccountController:account')->setName('account');
 
 $app->group('/auth', function() use ($container) {
     
-    $this->map(['GET', 'POST'],'/login', 'App\Controllers\AuthController:login');
-    $this->map(['GET', 'POST'],'/logout', 'App\Controllers\AuthController:logout');
-    $this->map(['GET', 'POST'], '/signup', 'App\Controllers\AuthController:signup');
+    $this->map(['GET', 'POST'],'/login', 'App\Controllers\AuthController:login')->setName('login');
+    $this->map(['GET', 'POST'],'/logout', 'App\Controllers\AuthController:logout')->setName('logout');
+    $this->map(['GET', 'POST'], '/signup', 'App\Controllers\AuthController:signup')->setName('signup');
 });
 
 $app->group('/shop', function() use ($container) {
-    $this->get('/cart', 'App\Controllers\ShopController:cart');
-    $this->get('/cart/add/{idArticle}', 'App\Controllers\ShopController:addToCart');
-    $this->get('/checkout', 'App\Controllers\ShopController:checkout');
-    $this->get('/{category}', 'App\Controllers\ShopController:shop');
+    $this->get('/cart', 'App\Controllers\ShopController:cart')->setName('cart');
+    $this->get('/cart/add/{idArticle}', 'App\Controllers\ShopController:addToCart')->setName('addToCart');
+    $this->get('/checkout', 'App\Controllers\ShopController:checkout')->setName('checkout');
+    $this->get('/{category}', 'App\Controllers\ShopController:shop')->setName('shop');
 
 });

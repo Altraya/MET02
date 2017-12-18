@@ -4,6 +4,7 @@ namespace App\Controllers;
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Managers\UserManager;
 
 class AccountController {
     
@@ -18,7 +19,12 @@ class AccountController {
     
     public function account(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-	    $result = $this->view->render($response, 'account.twig', []);
+        $login = $_SESSION["login"];
+        
+        $userManager = new UserManager();
+        $user = $userManager->getUserByLogin($login);
+        
+	    $result = $this->view->render($response, 'account.twig', ["user" => $user]);
 	    return $result;
     }
 }

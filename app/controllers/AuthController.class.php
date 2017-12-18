@@ -54,7 +54,7 @@ class AuthController {
                             $_SESSION["initiated"] = true;
                         }
                         
-                        $_SESSION["username"] = $user->getLogin();
+                        $_SESSION["login"] = $user->getLogin();
                     }else{
                         $ownResponse->setIsGood(false);
                         $ownResponse->setMessage("You entered a wrong password");
@@ -80,8 +80,8 @@ class AuthController {
     {
 	    session_destroy();
 	    
-	   
-	    return $response->withRedirect('/', 303);
+	    $route = $this->container->get('router')->pathFor('home');
+	    return $response->withRedirect($route, 303);
     }
     
     public function signup(ServerRequestInterface $request, ResponseInterface $response, array $args)
