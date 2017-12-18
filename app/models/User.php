@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models;
 use Doctrine\ORM\Mapping;
+use Doctrine\Common\Collections;
 
 /**
  * @Entity
@@ -65,7 +66,7 @@ class User
     
     /**
      * Many users can have many addresses
-     * @ManyToMany(targetEntity="App\Models\Address", mappedBy="users")
+     * @ManyToMany(targetEntity="App\Models\Address", mappedBy="users", cascade={"persist"})
      * @JoinTable(name="usersAdresses",
      *  joinColumns={@JoinColumn(name="idUser", referencedColumnName="idUser")},
      *  inverseJoinColumns={@JoinColumn(name="idAddress", referencedColumnName="idAddress")}
@@ -78,7 +79,7 @@ class User
 		
 		//not in use now ... but was so cool, so keep it here in comment :< 
 		//$salt = "Why is Batman so salty? Na Na Na Na Na Na Na Na Batman!"; //<--- our amazing salt
-		$this->addresses = new ArrayCollection();
+		$this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
 
 	}
 	
@@ -109,6 +110,9 @@ class User
     }
     public function getBirthdate(){
     	return $this->birthdate;
+    }
+    public function getAddresses(){
+    	return $this->addresses;
     }
 	/************************/
 	
@@ -148,7 +152,9 @@ class User
 		$newDateString = $dateBirthdate->format('Y-m-d');
 		$this->birthdate = $dateBirthdate;
 	}
-	
+	public function setAddresses($adresses){
+		$this->addresses = $addresses;
+	}
 	/************************/
 	
 	public function hydrate($data)
@@ -167,10 +173,17 @@ class User
 	
 	/* Public methods*/
 	
-	public function addAddress(App\Models\Address $address)
+	public function addAddress(Address $address)
     {
-        $address->addUser($this); // synchronously updating inverse side
-        $this->addresses[] = $address;
+    	if(!$address->getUsers()->contains($this))
+    	{
+	        $address->addUser($this); // synchronously updating inverse side
+    	}
+    	
+    	if(!$this->addresses->contains($address))
+    	{
+	        $this->addresses[] = $address;
+    	}
     }
     
 	/**

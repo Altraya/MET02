@@ -41,7 +41,7 @@ class Address
     
     /**
      * Many users can have the same address
-     * @ManyToMany(targetEntity="App\Models\User", mappedBy="addresses")
+     * @ManyToMany(targetEntity="App\Models\User", mappedBy="addresses", cascade={"persist"})
      * @JoinTable(name="usersAdresses",
      *  joinColumns={@JoinColumn(name="idAddress", referencedColumnName="idAddress")},
      *  inverseJoinColumns={@JoinColumn(name="idUser", referencedColumnName="idUser")}
@@ -51,7 +51,7 @@ class Address
     
     /*Constructor*/
 	public function __construct(){
-        $this->users = new ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
 	}
 	
 	/***************************
@@ -98,10 +98,17 @@ class Address
 		  public function
 	****************************/
 
-	public function addUser(App\Models\User $user)
+	public function addUser(User $user)
     {
-        $user->addAddress($this); // synchronously updating inverse side
-        $this->users[] = $user;
+    	if($user->getAddresses()->contains($this))
+    	{
+    		 $user->addAddress($this); // synchronously updating inverse side
+    	}
+    	
+    	if(!$this->users->contains($user))
+    	{
+	        $this->users[] = $user;
+    	}
     }
 	
 	/************************/

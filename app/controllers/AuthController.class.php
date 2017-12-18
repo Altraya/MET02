@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Utilities\Utilities;
 use App\Models\User;
+use App\Models\Address;
 use App\Managers\UserManager;
 use App\Utilities\Response;
 
@@ -98,12 +99,21 @@ class AuthController {
                 //don't be efraid, validation rules and sanitize of $parameters are
                 //in User setters
 
-                $newUser = new User($parameters);
-               
+                $newUser = new User();
+                $newUser->hydrate($parameters);
+            
+                
+                $addressClass = new Address();
+                $addressClass->setAddress($parameters["address"]);
+                $addressClass->setPostalcode($parameters["postalcode"]);
+                $addressClass->setCity($parameters["city"]);
+                
+                $newUser->addAddress($addressClass);
+                
                 //get back userManager to persist our entity
                 $userManager = new UserManager();
                 $entityManagerUser = $userManager->getEntityManager();
-                $entityManagerUser->persist($newUser);
+                $entityManagerUser->persist($newUser); //this will also persist $addressClass cause of cascade={"persist"}
                 $entityManagerUser->flush();
                 
                 $ownResponse->setIsGood(false);

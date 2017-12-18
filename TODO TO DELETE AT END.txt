@@ -121,3 +121,4 @@ Features manquantes :
     sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
     pour le cart : faire quelque chose permettant de delete un des items dans notre panier
     faire la page de recherche
+    faire en sorte que tout soit responsive

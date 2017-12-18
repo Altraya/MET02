@@ -36,7 +36,7 @@ class Category
 
     /**
      * Many categories have many articles
-     * @ManyToMany(targetEntity="App\Models\Article", inversedBy="categories")
+     * @ManyToMany(targetEntity="App\Models\Article", inversedBy="categories", cascade={"persist"})
      * @JoinTable(name="articlesCategories",
      *  joinColumns={@JoinColumn(name="idCategory", referencedColumnName="idCategory")},
      *  inverseJoinColumns={@JoinColumn(name="idArticle", referencedColumnName="idArticle")}
