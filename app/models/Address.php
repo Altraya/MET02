@@ -41,7 +41,7 @@ class Address
     
     /**
      * Many users can have the same address
-     * @ManyToMany(targetEntity="App\Models\User", mappedBy="addresses", cascade={"persist"})
+     * @ManyToMany(targetEntity="App\Models\User", inversedBy="addresses", cascade={"persist"})
      * @JoinTable(name="usersAdresses",
      *  joinColumns={@JoinColumn(name="idAddress", referencedColumnName="idAddress")},
      *  inverseJoinColumns={@JoinColumn(name="idUser", referencedColumnName="idUser")}
