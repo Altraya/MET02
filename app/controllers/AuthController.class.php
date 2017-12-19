@@ -56,6 +56,10 @@ class AuthController {
                         }
                         
                         $_SESSION["login"] = $user->getLogin();
+                        
+                        $_SESSION["message"] = $ownResponse->getMessage();
+                        $route = $this->container->get('router')->pathFor('home');
+	                    return $response->withRedirect($route, 303);
                     }else{
                         $ownResponse->setIsGood(false);
                         $ownResponse->setMessage("You entered a wrong password");

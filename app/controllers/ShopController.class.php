@@ -5,6 +5,7 @@ use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Managers\ArticleManager;
+use App\Managers\UserManager;
 use App\Models\Article;
 
 class ShopController {
@@ -60,7 +61,12 @@ class ShopController {
 
     public function checkout(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-	    $result = $this->view->render($response, 'checkout.twig', []);
+        $login = $_SESSION["login"];
+        
+        $userManager = new UserManager();
+        $user = $userManager->getUserByLogin($login);
+        
+	    $result = $this->view->render($response, 'checkout.twig', ["user"=>$user]);
 	    return $result;
     }
 }

@@ -1,5 +1,10 @@
 {% extends "include/layout.twig" %}
 {% block body %}
+    {% if session.message %}
+    <div class="row">
+        {{session.message}}
+    </div>
+    {% endif %}
     <div class="row smallMarginTop" id="sliderHome">
         {% include 'slider.twig' %}
     </div>
