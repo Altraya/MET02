@@ -27,4 +27,10 @@ class HomeController {
 	    $result = $this->view->render($response, '404.twig', []);
 	    return $result;
     }
+    
+    public function search(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    {
+        $result = $this->view->render($response, 'search.twig', []);
+        return $result;
+    }
 }

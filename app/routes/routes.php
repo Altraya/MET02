@@ -22,6 +22,7 @@ $container["AuthController"] = function ($container) {
 $app->get('/', 'App\Controllers\HomeController:home')->setName('home');
 $app->get('/404', 'App\Controllers\HomeController:notFound')->setName('notFound');
 $app->get('/account', 'App\Controllers\AccountController:account')->setName('account');
+$app->map(['GET', 'POST'], '/search', 'App\Controllers\HomeController:search')->setName('search');
 
 $app->group('/auth', function() use ($container) {
     
