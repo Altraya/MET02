@@ -15,6 +15,7 @@ class HomeController {
     public function __construct(ContainerInterface $container) {
        $this->container = $container;
        $this->view = $container->get('view');
+
     }
     
     public function home(ServerRequestInterface $request, ResponseInterface $response, array $args)

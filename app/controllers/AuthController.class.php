@@ -58,6 +58,7 @@ class AuthController {
                         $_SESSION["login"] = $user->getLogin();
                         
                         $_SESSION["messageSuccess"] = $ownResponse->getMessage();
+                        $_SESSION["nbMessageDisplay"] = 0;
                         $route = $this->container->get('router')->pathFor('home');
 	                    return $response->withRedirect($route, 303);
                     }else{

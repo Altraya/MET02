@@ -4,14 +4,18 @@
 <body>
     {% include 'include/header.twig' %}
     <section id="bodyPage" class="container">
-        {% if session.messageError%}
-            {% include 'include/alertError.twig' with {'alertErrorMessage': session.messageError} %}
+        {% if session.messageError and session.nbMessageDisplay%}
+            {% if(session.nbMessageDisplay <= 1) %} <!-- It's the first time we display this message --> 
+                {% include 'include/alertError.twig' with {'alertErrorMessage': session.messageError} %}
+            {% endif %}
         {% endif %}
         {% if messageError %}
             {% include 'include/alertError.twig' with {'alertErrorMessage': messageError} %}
         {% endif %}
-        {% if session.messageSuccess%}
-            {% include 'include/alertSuccess.twig' with {'alertSuccessMessage': session.messageSuccess} %}
+        {% if session.messageSuccess and session.nbMessageDisplay%}
+            {% if(session.nbMessageDisplay <= 1) %} <!-- It's the first time we display this message -->
+                {% include 'include/alertSuccess.twig' with {'alertSuccessMessage': session.messageSuccess} %}
+            {% endif %}
         {% endif %}
         {% if messageSuccess %}
             {% include 'include/alertSuccess.twig' with {'alertSuccessMessage': messageSuccess} %}

@@ -62,6 +62,12 @@ class FrontController {
         
         require_once 'app/routes/routes.php';
         
+               
+       if(isset($_SESSION["nbMessageDisplay"])) //to call in all controller
+       {
+           $_SESSION["nbMessageDisplay"] += 1; //increment this to prevent view to display more than one time a message set by session
+       }
+       
 		$app->run();
 	}
 	
