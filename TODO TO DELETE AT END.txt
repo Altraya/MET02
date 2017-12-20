@@ -123,9 +123,11 @@ TODO important : Tout passer au validator + check si on peut mettre un peu plus 
 
 Features manquantes : 
     oksur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
-    pour le cart : faire quelque chose permettant de delete un des items dans notre panier
+    okpour le cart : faire quelque chose permettant de delete un des items dans notre panier
     okfaire la page de recherche
     faire en sorte que tout soit responsive
+    
+    regex validation (cours5 php)
 
 Mettre un js dans la page checkout pour envoyer les info au webservice
 Faire un webservice qui revnoie une validation de commande

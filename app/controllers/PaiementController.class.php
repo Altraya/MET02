@@ -20,7 +20,7 @@ class PaiementController {
             foreach ($_SESSION["articles"] as $article){
                $total+= $article["priceHT"];
             }
-            $array = array(["commandNumber" =>rand(1,9999),"date" =>date('m/d/Y', time()),"total" => $total,"articles" => $_SESSION["articles"]]);
+            $array = array("commandNumber" =>rand(1,9999),"date" =>date('m/d/Y', time()),"total" => $total,"articles" => $_SESSION["articles"]);
             
 
             $articlesJson = json_encode($array);
