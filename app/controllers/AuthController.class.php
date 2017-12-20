@@ -57,7 +57,7 @@ class AuthController {
                         
                         $_SESSION["login"] = $user->getLogin();
                         
-                        $_SESSION["message"] = $ownResponse->getMessage();
+                        $_SESSION["messageSuccess"] = $ownResponse->getMessage();
                         $route = $this->container->get('router')->pathFor('home');
 	                    return $response->withRedirect($route, 303);
                     }else{
@@ -74,7 +74,15 @@ class AuthController {
                 $ownResponse->setMessage("Please enter a login and a password");
             }
             
-    	    $result = $this->view->render($response, 'login.twig', array("message" => $ownResponse->getMessage()));
+            $arrayMessageDisplay = array();
+            if($ownResponse->getIsGood())
+            {
+                $arrayMessageDisplay["messageSuccess"] = $ownResponse->getMessage();
+            }else{
+                $arrayMessageDisplay["messageError"] = $ownResponse->getMessage();
+            }
+            
+    	    $result = $this->view->render($response, 'login.twig', $arrayMessageDisplay);
         }else{
             $result = $this->view->render($response, 'login.twig', []);
         }

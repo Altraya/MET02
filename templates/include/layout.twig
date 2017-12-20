@@ -4,6 +4,19 @@
 <body>
     {% include 'include/header.twig' %}
     <section id="bodyPage" class="container">
+        {% if session.messageError%}
+            {% include 'include/alertError.twig' with {'alertErrorMessage': session.messageError} %}
+        {% endif %}
+        {% if messageError %}
+            {% include 'include/alertError.twig' with {'alertErrorMessage': messageError} %}
+        {% endif %}
+        {% if session.messageSuccess%}
+            {% include 'include/alertSuccess.twig' with {'alertSuccessMessage': session.messageSuccess} %}
+        {% endif %}
+        {% if messageSuccess %}
+            {% include 'include/alertSuccess.twig' with {'alertSuccessMessage': messageSuccess} %}
+        {% endif %}
+        
         {% block body %}
         {% endblock %}
     </section>

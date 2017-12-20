@@ -1,5 +1,8 @@
 $(document).ready(function(){
     initializeLayout();
+    $("#alert_close").on('click', (function(){
+        $( "#alert_box" ).fadeOut( "slow", function() {});
+    }));
 });
 
 
@@ -16,3 +19,4 @@ function initializeLayout()
         closeOnSelect: false
     });
 }
+

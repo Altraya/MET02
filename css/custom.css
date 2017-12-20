@@ -248,3 +248,11 @@ input.formSearch::-ms-input-placeholder { /* Microsoft Edge */
     font-family: DosisBold;
 }
 
+.icon_style{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: white;
+    cursor:pointer; 
+}
