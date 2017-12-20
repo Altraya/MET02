@@ -125,9 +125,11 @@ Features manquantes :
     oksur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
     okpour le cart : faire quelque chose permettant de delete un des items dans notre panier
     okfaire la page de recherche
-    faire en sorte que tout soit responsive
+    OKfaire en sorte que tout soit responsive
     
     regex validation (cours5 php)
+    rest (l'envoi des données qu'il faut)
+    
 
 Mettre un js dans la page checkout pour envoyer les info au webservice
 Faire un webservice qui revnoie une validation de commande

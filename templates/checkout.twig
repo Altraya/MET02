@@ -35,19 +35,19 @@
     
         {% for useraddress in user.addresses %}
             <div class="row">
-              <div class="input-field col s6">
+              <div class="input-field col m6 s12">
                 <i class="material-icons prefix">local_post_office</i>
                 <input id="address" type="text" class="validate" value="{{useraddress.address}}">
                 <label for="address">Address</label>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s4">
+              <div class="input-field col m4 s12">
                 <i class="material-icons prefix">location_on</i>
                 <input id="postalcode" type="text" class="validate" value="{{useraddress.postalcode}}">
                 <label for="postalcode">Postal Code</label>
               </div>
-              <div class="input-field col s8">
+              <div class="input-field col m8 s12">
                 <i class="material-icons prefix">location_city</i>
                 <input id="city" type="text" class="validate" value="{{useraddress.city}}">
                 <label for="city">City</label>
@@ -57,11 +57,11 @@
           {% endfor %}
           
         <div class="row">
-            <div class="col s4"></div>
-            <div class="col s4">
+            <div class="col m4 s12"></div>
+            <div class="col m4 s12">
                 <button type="button" class="btn mediumButtonCentered customLessPinkBackground borderPink" onclick="paiement()">Proceed to paiement</button>
             </div>
-            <div class="col s4"></div>
+            <div class="col m4 s12"></div>
         </div>
   </form>
     {% block jsblock %}
