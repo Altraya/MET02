@@ -52,11 +52,24 @@ class ShopController {
         {
             $_SESSION["articles"] = array();
         }else{
-            $_SESSION["articles"][] = $article;
+            $_SESSION["articles"][$article["id"]] = $article;
         }
         
         
 	    return $this->view->render($response, 'include/miniCartItem.twig', ["article" => $article]);;
+    }
+    
+    public function deleteFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    {
+        $idArticle = $request->getAttribute('idArticle');
+        $articleManager = new ArticleManager();
+        $article = $articleManager->getArticleByIdToArray($idArticle);
+     
+        if(in_array($article, $_SESSION["articles"]))
+        {
+            unset($_SESSION["articles"][$article["id"]]);
+        }
+        
     }
 
     public function checkout(ServerRequestInterface $request, ResponseInterface $response, array $args)

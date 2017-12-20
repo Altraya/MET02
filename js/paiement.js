@@ -6,9 +6,24 @@ function paiement()
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "https://met02-karakayn.c9users.io/MyLittleUnicornShop/index.php/webservice/paiement", true);
     xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.onreadystatechange = callbackFunction;
     xhttp.send();
     console.log("rest call");
-    console.log(xhttp);
-    console.log(xhttp.responseText);
-    //var response = JSON.parse(xhttp.responseText);
+    
+}
+
+
+function callbackFunction()
+{
+    if(this.readyState != 4)
+        return;
+    if(this.status == 204)
+    {
+        console.log("empty cart");
+        alert("The cart is empty");
+        return;
+    }
+    console.log(this);
+    //var response = JSON.parse(this.responseText);
+    //console.log(response);
 }

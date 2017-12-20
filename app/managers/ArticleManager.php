@@ -42,6 +42,21 @@ class ArticleManager extends ConnectionManager
         return $articles;
     }
     
+    public function deleteArticleWithId($idArticle)
+    {
+        $ok = false;
+        $em = $this->getEntityManager();
+        $repository = $em->getRepository("App\Models\Article");
+        $article = $repository->findOneById($idArticle);
+        if($article != NULL)
+        {
+            $em->remove($article);
+            $em->flush();
+            $ok = true;
+        }
+        return $ok;
+    }
+    
     public function getArticlesByNameSearch($name)
     {
         $articles = NULL;

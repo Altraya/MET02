@@ -94,8 +94,8 @@ https://met02-karakayn.c9users.io/phpmyadmin
 
 TODO :
 Faire en sorte que le signup marche (prise en compte du birthdate + reajout de la validation) 
-ok Ajout de validation js entre les deux password pour qu'ils correspondent.OK
-ok faire en sorte que la connexion marche ok
+Ajout de validation js entre les deux password pour qu'ils correspondent.OK
+faire en sorte que la connexion marche ok
 
 ajouter un lien sur chaque image : pour emmener vers un item ou une category precise
 
@@ -103,32 +103,32 @@ ajouter les models/entity pour chaque table
 
 faire la page de paiement 
 
-ok faire la recherche
+faire la recherche
 
-ok faire la query pour le catalogue ok
+faire la query pour le catalogue ok
 
-ok faire la panier avec les sessions phpay ok
+faire la panier avec les sessions phpay ok
 
 Mini bug a corriger si on a le temps :
 
-En cours Bug 2 : quand je me login ca reload pas la page du coup on voit pas tout de suite qu'on est co > faire en sorte d'erase la variable de session sur les autres page et de mettre un beau css
-Bug 3 : Mettre des trucs qui cut les longs text
-Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le prix pas bien update decoulant du premier glitch)
+okEn cours Bug 2 : quand je me login ca reload pas la page du coup on voit pas tout de suite qu'on est co > faire en sorte d'erase la variable de session sur les autres page et de mettre un beau css
+ok Bug 3 : Mettre des trucs qui cut les longs text
+ok Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le prix pas bien update decoulant du premier glitch)
 Bug 5 : CSS des boutons quand on clique dessus pas le meme pour les checkouts
 okBug 6 : enlever onglet account etc quand on est pas connecté:ok
 Bug 7 : Remplacer par un message d'erreur correcte quand l'insert en bdd fail (check tous les forms)
 Bug 8 : quand l'inscription réussi > doit redirect sur homepage avec message ok
 
+TODO important : Tout passer au validator + check si on peut mettre un peu plus d'element shiny html5
+
 Features manquantes : 
-    ok sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
+    oksur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
     pour le cart : faire quelque chose permettant de delete un des items dans notre panier
-    ok faire la page de recherche
+    okfaire la page de recherche
     faire en sorte que tout soit responsive
-    Ajouter la pagination !!!
 
 Mettre un js dans la page checkout pour envoyer les info au webservice
 Faire un webservice qui revnoie une validation de commande
 
 Renvoyer un récapitulatif de commande trouvable dans la variable session["articles"] exemple dans la fonction addtocart de shopcontroler
 
-Ou add le path du js ???

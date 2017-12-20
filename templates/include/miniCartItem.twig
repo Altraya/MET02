@@ -9,6 +9,7 @@
           <div class="row autoMargin">
             <div class="col s12">
               <h4 class="js-articleName">{{ article.name }}</h4>
+              <i class="material-icons tiny icon_style_black deleteCartArticle" data-articleid="{{article.id}}" data-pathfordelete="{{path_for('deleteFromCart', { 'idArticle': article.id })}}">clear</i>
             </div>
           </div>
           <div class="row autoMargin">

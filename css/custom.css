@@ -256,3 +256,13 @@ input.formSearch::-ms-input-placeholder { /* Microsoft Edge */
     color: white;
     cursor:pointer; 
 }
+
+nav .nav-wrapper .icon_style_black, .icon_style_black{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: black;
+    cursor:pointer; 
+    line-height:normal;
+}
