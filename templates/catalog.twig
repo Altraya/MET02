@@ -15,7 +15,7 @@
                             </div>
                             <div class="card-content">
                               <span class="card-title">{{article.name}}</span>
-                              <p>{{article.description}}</p>
+                              <p>{{article.description|striptags|slice(0, 420) ~ '...'}}</p>
                             </div>
                             <div class="card-action">
                                 <a href="#">{{article.priceHT}}€ HT</a>

@@ -19,7 +19,7 @@ $(document).ready(function(){
                 //else we will create the row
                 
                 //so find #titleCart to add row with our article now :)
-                $(newArticleToAddToCart).appendTo( $("#titleCart") ); //add article to list
+                $(newArticleToAddToCart).insertAfter( $("#titleCart") ); //add article to list
                 
                 //update nb of article in title
                 var previousNbArticle = $("#nbArticleMiniCart").text();

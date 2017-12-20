@@ -7,9 +7,9 @@
             <div class="card-stacked flexIt">
                 <div class="card-content tenPadding">
                     <h4 class="">{{ article.name }}</h4>
-                    <p class="miniMarginArround">{{ article.description }}</p>
+                    <p class="miniMarginArround">{{ article.description|striptags|slice(0, 420) ~ '...'}}</p>
                     {% if article.size != "" %}
-                        <p class="miniMarginArround">Size : {{ article.size }}</p>
+                        <p class="miniMarginArround">Size : {{ article.size|upper }}</p>
                     {% endif %} 
                     <p class="miniMarginArround">Color : Black</p>
                     <p class="miniMarginArround">Quantity : 1.</p>
