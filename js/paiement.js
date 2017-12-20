@@ -24,6 +24,6 @@ function callbackFunction()
         return;
     }
     console.log(this);
-    //var response = JSON.parse(this.responseText);
-    //console.log(response);
+    var responseJSON = JSON.parse(this.response);
+    console.log(responseJSON);
 }

@@ -18,14 +18,13 @@ class PaiementController {
         {
             $total = 0;
             foreach ($_SESSION["articles"] as $article){
-               $total+= $article->$priceHT;
+               $total+= $article["priceHT"];
             }
-            $jsonTotal = "{\"total\":".$total.",\"articles\":";
-            $articlesJson = json_encode($_SESSION["articles"]);
-            $json = $json.$articlesJson."\"}";
-            //$newResponse = $response->withJson($json);
-            $newResponse = $response->write($jsonTotal);
-            //$newResponse->write($total);
+            $array = array(["commandNumber" =>rand(1,9999),"date" =>date('m/d/Y', time()),"total" => $total,"articles" => $_SESSION["articles"]]);
+            
+
+            $articlesJson = json_encode($array);
+            $newResponse = $response->withJson($articlesJson);
             return $newResponse;
         }
 

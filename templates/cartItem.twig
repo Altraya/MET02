@@ -1,4 +1,4 @@
-<div class="row noMarginBottom">
+<div class="row noMarginBottom" id="articleBigCart-{{article.id}}">
     <div class="col s12">
         <div class="card horizontal maxHeightCardItemsBig">
             <div class="card-image imgCartItem flexIt">
@@ -14,7 +14,7 @@
                     <p class="miniMarginArround">Color : Black</p>
                     <p class="miniMarginArround">Quantity : 1.</p>
                     <p class="right pinkMaterializeColor priceBigCard">{{ "%.2f"|format(article.priceHT) }}€</p>
-                    <i class="material-icons tiny icon_style_black deleteCartArticle">clear</i>
+                    <i class="material-icons tiny icon_style_black deleteCartArticle" data-articleid="{{article.id}}" data-pathfordelete="{{path_for('deleteFromCart', { 'idArticle': article.id })}}">clear</i>
                 </div>
             </div>
         </div>

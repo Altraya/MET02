@@ -26,5 +26,7 @@
     </div>
 </div>
       
-    
+    {% block jsblock %}
+        <script type="text/javascript" src="{{ baseUrl ~ 'js/fullCart.js' }}"></script>
+    {% endblock %}
 {% endblock body %}
