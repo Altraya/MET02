@@ -4,6 +4,7 @@ namespace App\Controllers;
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Managers\ArticleManager;
 
 class HomeController {
     
@@ -30,7 +31,13 @@ class HomeController {
     
     public function search(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        $result = $this->view->render($response, 'search.twig', []);
+        $parameters = $request->getParams();
+        $searchField = htmlspecialchars($parameters["searchField"]);
+        
+        $articleManager = new ArticleManager();
+        $articlesSearchedByName = $articleManager->getArticlesByNameSearch($searchField);
+        
+        $result = $this->view->render($response, 'search.twig', ["articles"=>$articlesSearchedByName, "valuePreviousSearch" => $searchField]);
         return $result;
     }
 }

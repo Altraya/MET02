@@ -7,11 +7,14 @@ require_once("app/controllers/AuthController.class.php");
 require_once("app/controllers/HomeController.class.php");
 require_once("app/controllers/AccountController.class.php");
 require_once("app/controllers/ShopController.class.php");
+require_once("app/controllers/PaiementController.class.php");
 
 use App\Controllers\AuthController;
 use App\Controllers\HomeController;
 use App\Controllers\AccountController;
 use App\Controllers\ShopController;
+use App\Controllers\PaiementController;
+
 
 //AUTH
 //$app->get('/auth/login', php/controllers/AuthController::class . ':login');
@@ -37,4 +40,8 @@ $app->group('/shop', function() use ($container) {
     $this->get('/checkout', 'App\Controllers\ShopController:checkout')->setName('checkout');
     $this->get('/{category}', 'App\Controllers\ShopController:shop')->setName('shop');
 
+});
+
+$app->group('/webservice', function() use ($container){
+    $this->get('/paiement', 'App\Controllers\PaiementController:paiementWebService')->setName('paiementWebService');
 });

@@ -59,9 +59,12 @@
         <div class="row">
             <div class="col s4"></div>
             <div class="col s4">
-                <button type="submit" class="btn mediumButtonCentered customLessPinkBackground borderPink">Proceed to paiement</button>
+                <button type="button" class="btn mediumButtonCentered customLessPinkBackground borderPink" onclick="paiement()">Proceed to paiement</button>
             </div>
             <div class="col s4"></div>
         </div>
   </form>
+    {% block jsblock %}
+        <script type="text/javascript" src="{{ baseUrl ~ 'js/paiement.js' }}"></script>
+    {% endblock jsblock %}
 {% endblock body %}

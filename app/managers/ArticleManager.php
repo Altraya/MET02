@@ -42,6 +42,19 @@ class ArticleManager extends ConnectionManager
         return $articles;
     }
     
+    public function getArticlesByNameSearch($name)
+    {
+        $articles = NULL;
+        $repository = $this->getEntityManager()->getRepository("App\Models\Article");
+        $query = $repository->createQueryBuilder('a')
+                       ->where('a.name LIKE :name')
+                       ->setParameter('name', '%'.$name.'%')
+                       ->getQuery();
+        $articles = $query->getResult();
+
+        return $articles;
+    }
+    
     public function getArticleById($idArticle)
     {
         $repository = $this->getEntityManager()->getRepository("App\Models\Article");

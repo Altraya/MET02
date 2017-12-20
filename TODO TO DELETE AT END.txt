@@ -117,15 +117,18 @@ Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le 
 Bug 5 : CSS des boutons quand on clique dessus pas le meme pour les checkouts
 okBug 6 : enlever onglet account etc quand on est pas connecté:ok
 Bug 7 : Remplacer par un message d'erreur correcte quand l'insert en bdd fail (check tous les forms)
+Bug 8 : quand l'inscription réussi > doit redirect sur homepage avec message ok
 
 Features manquantes : 
-    sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
+    ok sur la page d'inscription de prendre en compte les adresses etc... join + doctrine class a créer + link avec bdd
     pour le cart : faire quelque chose permettant de delete un des items dans notre panier
-    faire la page de recherche
+    ok faire la page de recherche
     faire en sorte que tout soit responsive
+    Ajouter la pagination !!!
 
 Mettre un js dans la page checkout pour envoyer les info au webservice
 Faire un webservice qui revnoie une validation de commande
 
 Renvoyer un récapitulatif de commande trouvable dans la variable session["articles"] exemple dans la fonction addtocart de shopcontroler
 
+Ou add le path du js ???
