@@ -29,6 +29,10 @@ $(document).ready(function(){
                 nbArticle = nbArticle - 1;
                 $("#nbArticleMiniCart").text(nbArticle);
                     
+                var totalHTBigCart =  $("#totalHTBigCart").text();
+                var priceHTbig = parseFloat(totalHTBigCart);
+                priceHTbig = priceHTbig - priceToRemove;
+                $("#totalHTBigCart").text(priceHTbig);
                 //remove div
                 $(this).remove();
             });

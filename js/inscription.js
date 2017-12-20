@@ -1,7 +1,6 @@
 function checkMail()
 {
-    console.log("test");
-    console.log(email.value);
+    
     var regex = new RegExp("/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/");
     if(regex.test(email.value))
         console.log("regexValid");
@@ -32,8 +31,7 @@ function checkPhone()
 
 function checkPassword()
 {
-    console.log(password.value);
-    console.log("test");
+ 
     if(password.value && password2.value)
     {
         if(password.value == password2.value)

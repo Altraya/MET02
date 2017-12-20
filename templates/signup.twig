@@ -8,19 +8,19 @@
     <h2>Login information</h2>
     <hr/>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col m6 s12">
         <i class="material-icons prefix">account_circle</i>
         <input id="login" name="login" type="text" class="validate" >
         <label for="login">Login</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col m6 s12">
         <i class="material-icons prefix">lock</i>
         <input id="password" name="pwd" type="password" class="validate" onchange="checkPassword()">
         <label for="password">Password</label>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col m6 s12">
         <i class="material-icons prefix">lock</i>
         <input id="password2" name="pwdCheck" type="password" class="validate" onchange="checkPassword()">
         <label for="password2" data-error="The 2 passwords are differents">Password confirmation</label>
@@ -30,17 +30,17 @@
     <h2>Personal information</h2>
     <hr/>
     <div class="row">
-      <div class="input-field col s4">
+      <div class="input-field col m4 s12">
         <i class="material-icons prefix">account_circle</i>
         <input id="first_name" name="firstName" type="text" class="validate">
         <label for="first_name">First Name</label>
       </div>
-      <div class="input-field col s4">
+      <div class="input-field col m4 s12">
         <i class="material-icons prefix">account_circle</i>
         <input id="last_name" name="lastName" type="text" class="validate">
         <label for="last_name">Last Name</label>
       </div>
-      <div class="input-field col s4">
+      <div class="input-field col m4 s12">
         <i class="material-icons prefix">cake</i>
         <input id="birthdate" name="birthdate" type="text" class="datepicker">
         <label for="birthdate">Birthdate</label>
@@ -48,13 +48,13 @@
       
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col m6 s12">
         <i class="material-icons prefix">mail</i>
         <input id="email" type="email" name="email" class="validate" onchange="checkMail()">
         <label for="email" data-error="Wrong email">Contact email</label>
       </div>
       
-      <div class="input-field col s6">
+      <div class="input-field col m6 s12">
         <i class="material-icons prefix">phone</i>
         <input id="phone" type="tel" name="phoneNumber" class="validate" onchange="checkPhone()">
         <label for="phone" data-error="Wrong phone number">Phone number</label>
@@ -66,19 +66,19 @@
     <h2>Delivery information</h2>
     <hr/>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col m6 s12">
         <i class="material-icons prefix">local_post_office</i>
         <input id="address" name="address" type="text" class="validate">
         <label for="address">Address</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s4">
+      <div class="input-field col m4 s12">
         <i class="material-icons prefix">location_on</i>
         <input id="postalcode" name="postalcode" type="text" class="validate">
         <label for="postalcode">Postal Code</label>
       </div>
-      <div class="input-field col s8">
+      <div class="input-field col m8 s12">
         <i class="material-icons prefix">location_city</i>
         <input id="city" name="city" type="text" class="validate">
         <label for="city">City</label>
@@ -86,11 +86,11 @@
       
     </div>
     <div class="row">
-      <div class="col s4"></div>
-      <div class="col s4">
+      <div class="col m4 s12"></div>
+      <div class="col m4 s12">
         <button type="submit" class="btn mediumButtonCentered customLessPinkBackground borderPink" form="formInscription">Submit</button>
       </div>
-      <div class="col s4"></div>
+      <div class="col m4 s12"></div>
     </div>
   </form>
   {% block jsblock %}

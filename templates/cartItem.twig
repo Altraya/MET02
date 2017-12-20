@@ -13,7 +13,7 @@
                     {% endif %} 
                     <p class="miniMarginArround">Color : Black</p>
                     <p class="miniMarginArround">Quantity : 1.</p>
-                    <p class="right pinkMaterializeColor priceBigCard">{{ "%.2f"|format(article.priceHT) }}€</p>
+                    <p class="right pinkMaterializeColor priceBigCard"><span class="priceHTArticle">{{ "%.2f"|format(article.priceHT) }}</span>€</p>
                     <i class="material-icons tiny icon_style_black deleteCartArticle" data-articleid="{{article.id}}" data-pathfordelete="{{path_for('deleteFromCart', { 'idArticle': article.id })}}">clear</i>
                 </div>
             </div>

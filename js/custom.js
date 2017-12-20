@@ -5,7 +5,6 @@ $(document).ready(function(){
     }));
     
     $(".deleteCartArticle").on("click", (function(){
-        console.log("clicked");
         var idArticle = $(this).data("articleid");
         var nameOfArticleMotherDiv = "#article-"+idArticle;
 
@@ -17,11 +16,9 @@ $(document).ready(function(){
             type : 'GET',
             dataType : 'html',
             success : function(result){
-                console.log("Dans ajax");
-                console.log(nameOfArticleMotherDiv);
+            
                 $(nameOfArticleMotherDiv).fadeOut( "slow", function(){
                     
-                console.log("fadeout");
                 //update total price
                 var priceToRemove = $(this).find(".priceHTArticle").text();
                 priceToRemove = parseFloat(priceToRemove);
