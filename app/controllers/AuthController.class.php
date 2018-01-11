@@ -59,7 +59,8 @@ class AuthController {
                         
                         $_SESSION["messageSuccess"] = $ownResponse->getMessage();
                         $_SESSION["nbMessageDisplay"] = 0;
-                        $route = $this->container->get('router')->pathFor('home');
+                        //$route = $this->container->get('router')->pathFor('home');
+                        $route = "../.."; //because path_for add a slash at the end and our pictures bug...>.<
 	                    return $response->withRedirect($route, 303);
                     }else{
                         $ownResponse->setIsGood(false);
@@ -94,7 +95,8 @@ class AuthController {
     {
 	    session_destroy();
 	    
-	    $route = $this->container->get('router')->pathFor('home');
+	    //$route = $this->container->get('router')->pathFor('home');
+        $route = "../.."; //because path_for add a slash at the end and our pictures bug...>.<
 	    return $response->withRedirect($route, 303);
     }
     
@@ -135,7 +137,8 @@ class AuthController {
             }catch(\Exception $ex)
             {
                 $ownResponse->setIsGood(false);
-                $ownResponse->setMessage("Error : ".$ex->getMessage()); 
+                //$ownResponse->setMessage("Error : ".$ex->getMessage()); 
+                $ownResponse->setMessage("Error : We have a problem to create your account, please check all fields and retry"); 
             }
             
     	    $result = $this->view->render($response, 'signup.twig', array("message" => $ownResponse->getMessage()));

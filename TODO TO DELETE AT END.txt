@@ -116,8 +116,8 @@ ok Bug 3 : Mettre des trucs qui cut les longs text
 ok Bug 4 : glitch quand add du html via le js (pour le mini cart -> a fix + fix le prix pas bien update decoulant du premier glitch)
 Bug 5 : CSS des boutons quand on clique dessus pas le meme pour les checkouts
 okBug 6 : enlever onglet account etc quand on est pas connecté:ok
-Bug 7 : Remplacer par un message d'erreur correcte quand l'insert en bdd fail (check tous les forms)
-Bug 8 : quand l'inscription réussi > doit redirect sur homepage avec message ok
+ok Bug 7 : Remplacer par un message d'erreur correcte quand l'insert en bdd fail (check tous les forms)
+ok Bug 8 : quand l'inscription réussi > doit redirect sur homepage avec message ok
 
 TODO important : Tout passer au validator + check si on peut mettre un peu plus d'element shiny html5
 
